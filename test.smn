@@ -77,3 +77,8 @@ println add_result; #[ => 7.000000 ]#
 #[ You can add as many arguments as you want. ]#
 add add_result_2, 1, 2, 3, 4, 5, 6, 7, 8, 9;
 println add_result_2; #[ => 45.000000 ]#
+
+#[ - Subtraction ]#
+set sub_result, 5;
+sub sub_result, 3;
+println sub_result; #[ => 2.000000 ]#
