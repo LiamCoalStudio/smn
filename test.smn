@@ -92,3 +92,9 @@ println mul_result; #[ => 12.000000 ]#
 set div_result, 1.0;
 div div_result, 2.0;
 println div_result; #[ => 0.500000 ]
+
+#[ - Modulus ]#
+#[ NOTE: Modulus cannot be used with decimal numbers. ]#
+set modulus_result, 3843;
+modulus modulus_result, 8;
+println modulus_result; #[ => 3.000000 ]#

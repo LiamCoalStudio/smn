@@ -8,6 +8,7 @@
 #include "elements/math/add_element.h"
 #include "elements/math/multiply_element.h"
 #include "elements/math/divide_element.h"
+#include "elements/math/modulus_element.h"
 
 #define u (*usable)
 #define add emplace_back
@@ -28,4 +29,5 @@ extern "C" void module_use_math(std::unordered_map<std::string, std::list<Langua
     u["math"].add(new SubtractElement);
     u["math"].add(new MultiplyElement);
     u["math"].add(new DivideElement);
+    u["math"].add(new ModulusElement);
 }
