@@ -12,9 +12,12 @@ bool AddElement::matches(const std::string &line)
 
 LanguageElement::Error AddElement::execute(std::list<str> args, int64 len, global_t *global)
 {
-    if(len < 3) { argerr; }
+    if(len < 2) { argerr; }
     str out = args.front(); args.pop_front();
     double result = 0.0;
+
+    if(global->variable_context.contains(out))
+        result = double_from(out, global);
 
     while(!args.empty())
     {
