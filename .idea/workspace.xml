@@ -26,7 +26,31 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="" />
+    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/module/std/elements/math/add_element.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/module/std/elements/math/add_element.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/src/module/std/std.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/src/module/std/std.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/src/module/std/str.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/CMakeFiles/std.dir/src/module/std/str.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/libstd.so" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/libstd.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-testing/simon.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-testing/simon.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/std/std.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/std/std.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/std/str.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/std/str.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/std/str.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/std/str.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.smn" beforeDir="false" afterPath="$PROJECT_DIR$/test.smn" afterDir="false" />
+    </list>
     <list id="a592647a-de99-4363-ad4b-029b41e67711" name="Add functions" comment="Add functions">
       <changelist_data name="lim" email="liam@liamiam.com" date="1604218504000" />
     </list>
@@ -52,7 +76,7 @@
     <option name="directoryName" value="a6s9ir5y" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-Debug-smn" />
+    <option name="configuration" value="0-Debug-std" />
   </component>
   <component name="ProjectId" id="1jcVGvGGFjaf3CZwjPrKXZBJ0By" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -81,6 +105,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/module/std/elements/io" />
       <recent name="$PROJECT_DIR$/src/elements" />
       <recent name="$PROJECT_DIR$/src" />
@@ -131,7 +156,7 @@
       <workItem from="1604262061705" duration="599000" />
       <workItem from="1604265683439" duration="42000" />
       <workItem from="1604378726534" duration="2641000" />
-      <workItem from="1604381464019" duration="863000" />
+      <workItem from="1604381464019" duration="3405000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1604189420912</created>
@@ -252,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604381289296</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add gitignore">
+      <created>1604395391153</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1604395391153</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +314,8 @@
     <MESSAGE value="Simplify developing Elements" />
     <MESSAGE value="Add some elements and mess with the parser and simon.h" />
     <MESSAGE value="better option parsing incoming" />
-    <option name="LAST_COMMIT_MESSAGE" value="better option parsing incoming" />
+    <MESSAGE value="add gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="728" y="441" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604380063785">
@@ -294,10 +327,11 @@
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
     <state x="1009" y="535" width="587" height="403" key="#com.intellij.fileTypes.FileTypeChooser/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604109886790" />
-    <state x="561" y="195" width="411" height="515" key="#com.intellij.ide.util.MemberChooser" timestamp="1604225317814">
+    <state x="561" y="195" width="411" height="515" key="#com.intellij.ide.util.MemberChooser" timestamp="1604394239018">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state x="561" y="195" width="411" height="515" key="#com.intellij.ide.util.MemberChooser/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604225317814" />
+    <state x="561" y="195" key="#com.intellij.ide.util.MemberChooser/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1604394239018" />
     <state x="734" y="253" width="411" height="662" key="#com.intellij.ide.util.MemberChooser/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604181422386" />
     <state x="789" y="366" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604216500173">
       <screen x="56" y="27" width="1864" height="1053" />
@@ -332,28 +366,32 @@
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
     <state x="1123" y="436" width="374" height="652" key="Github.UntrackedFilesDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604189379635" />
-    <state width="1669" height="368" key="GridCell.Tab.0.bottom" timestamp="1604380343817">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1670" height="368" key="GridCell.Tab.0.bottom" timestamp="1604395281341">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
+    <state width="1670" height="368" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1604395281341" />
     <state width="1670" height="197" key="GridCell.Tab.0.bottom/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1669" height="368" key="GridCell.Tab.0.bottom/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604380343817" />
-    <state width="1669" height="368" key="GridCell.Tab.0.center" timestamp="1604380343817">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1670" height="368" key="GridCell.Tab.0.center" timestamp="1604395281341">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.center/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
+    <state width="1670" height="368" key="GridCell.Tab.0.center/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1604395281341" />
     <state width="1670" height="197" key="GridCell.Tab.0.center/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1669" height="368" key="GridCell.Tab.0.center/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604380343817" />
-    <state width="1669" height="368" key="GridCell.Tab.0.left" timestamp="1604380343817">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1670" height="368" key="GridCell.Tab.0.left" timestamp="1604395281340">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.left/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
+    <state width="1670" height="368" key="GridCell.Tab.0.left/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1604395281340" />
     <state width="1670" height="197" key="GridCell.Tab.0.left/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1669" height="368" key="GridCell.Tab.0.left/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604380343817" />
-    <state width="1669" height="368" key="GridCell.Tab.0.right" timestamp="1604380343817">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1670" height="368" key="GridCell.Tab.0.right" timestamp="1604395281341">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.right/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
+    <state width="1670" height="368" key="GridCell.Tab.0.right/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1604395281341" />
     <state width="1670" height="197" key="GridCell.Tab.0.right/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1669" height="368" key="GridCell.Tab.0.right/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604380343817" />
     <state x="912" y="415" width="728" height="482" key="MultipleFileMergeDialog" timestamp="1604381657404">
