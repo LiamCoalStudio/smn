@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libstd.so -o libstd.so CMakeFiles/std.dir/src/module/std/std.cpp.o CMakeFiles/std.dir/src/module/std/elements/io/println_element.cpp.o CMakeFiles/std.dir/src/module/std/elements/io/print_element.cpp.o CMakeFiles/std.dir/src/module/std/str.cpp.o 

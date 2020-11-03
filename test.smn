@@ -1,0 +1,68 @@
+#[
+Simon Test File
+
+-----
+
+Tests as many features of Simon language as possible
+
+----- Quick syntax:
+
+Comments: #[ and ]#                                                                         #[ <- ignore
+Printing: println, print
+Variables: set
+String literals: "
+Using features: use <name>, use module <module> <name>
+Modules: module <module>
+
+Color variables: @color.red, @color.yellow, @color.blue,
+    @color.reset
+Special variables: @cmdline.file @simon.version
+
+----- Everything else you need to know
+
+* You cannot set variables with names starting with '@'
+    (@ variables are read only)
+]#
+
+
+#[ Using ]#
+use core;
+
+module std;
+use std, io;
+
+
+#[ Printing ]#
+
+#[     Normal ]#
+println "Simon is a cat.";
+
+#[     Colorful ]#
+print @color.blue;
+println "She has a hat.";
+print @color.reset;
+
+#[     Multi-Color! ]#
+print @color.yellow;
+print "meow ";
+print @color.reset;
+print @color.red;
+print "meow";
+println @color.reset;
+
+
+#[ Variables ]#
+set simon_version, @simon.version;
+print simon_version;
+println " is the version of Simon!";
+
+
+#[ Functions ]#
+test:
+    println "test";
+;;
+test;
+
+#[ Inclusion ]#
+.include "alsotest.smn";
+cat_things;
