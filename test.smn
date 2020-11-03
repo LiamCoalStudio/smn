@@ -87,3 +87,8 @@ println sub_result; #[ => 2.000000 ]#
 set mul_result, 3;
 mul mul_result, 4;
 println mul_result; #[ => 12.000000 ]#
+
+#[ - Division ]#
+set div_result, 1.0;
+div div_result, 2.0;
+println div_result; #[ => 0.500000 ]

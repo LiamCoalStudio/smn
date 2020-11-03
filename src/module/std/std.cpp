@@ -1,10 +1,13 @@
 #include <unordered_map>
 #include <list>
+
 #include "elements/io/print_element.h"
 #include "elements/io/println_element.h"
+
 #include "elements/math/subtract_element.h"
 #include "elements/math/add_element.h"
 #include "elements/math/multiply_element.h"
+#include "elements/math/divide_element.h"
 
 #define u (*usable)
 #define add emplace_back
@@ -24,4 +27,5 @@ extern "C" void module_use_math(std::unordered_map<std::string, std::list<Langua
     u["math"].add(new AddElement);
     u["math"].add(new SubtractElement);
     u["math"].add(new MultiplyElement);
+    u["math"].add(new DivideElement);
 }
