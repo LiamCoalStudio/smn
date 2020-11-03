@@ -82,3 +82,8 @@ println add_result_2; #[ => 45.000000 ]#
 set sub_result, 5;
 sub sub_result, 3;
 println sub_result; #[ => 2.000000 ]#
+
+#[ - Multiplication ]#
+set mul_result, 3;
+mul mul_result, 4;
+println mul_result; #[ => 12.000000 ]#
