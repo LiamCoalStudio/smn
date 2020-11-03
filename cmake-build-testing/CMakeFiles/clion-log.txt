@@ -1,4 +1,0 @@
-/snap/clion/129/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_BUILD_TYPE=Debug -DSIMON_TESTING_MODE=ON -G "CodeBlocks - Unix Makefiles" /home/liam/CLionProjects/smn
--- Configuring done
--- Generating done
--- Build files have been written to: /home/liam/CLionProjects/smn/cmake-build-testing

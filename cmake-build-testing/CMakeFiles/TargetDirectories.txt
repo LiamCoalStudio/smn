@@ -1,8 +1,0 @@
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/install/strip.dir
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/install/local.dir
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/install.dir
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/list_install_components.dir
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/std.dir
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/rebuild_cache.dir
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/smn.dir
-/home/liam/CLionProjects/smn/cmake-build-testing/CMakeFiles/edit_cache.dir
