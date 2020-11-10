@@ -1,13 +1,10 @@
-#include "elements.h"
 #include "simon.h"
-#include "elements/use_element.h"
-#include "elements/include_element.h"
-#include "elements/exec_function_element.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <filesystem>
 #include <optionparser.h>
+#include <vector>
 
 using namespace std;
 using namespace filesystem;
@@ -79,12 +76,6 @@ int main(int argc, char** argv)
         print_error("cannot open file");
         return 1;
     }
-
-    // Initialize `use`
-    all_elements.emplace_back(new UseElement);
-    all_elements.emplace_back(new IncludeElement);
-    all_elements.emplace_back(new ExecFunctionElement);
-    use_init();
 
     // Set global variables
     global.variable_context["@color.red"] = col_red;

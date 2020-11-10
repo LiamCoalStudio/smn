@@ -31,7 +31,6 @@ public:
     virtual str generate_enum_entry(const str& entry) = 0;
     virtual str generate_enum_end() = 0;
     virtual str transform(Language other, const str& string) = 0;
-
 };
 class CPP_Generator : public Generator
 {
@@ -57,9 +56,7 @@ public:
     str generate_struct_start(const str &name) override;
     str generate_struct_end() override;
     str generate_enum_start(const str &name) override;
-
     str generate_function_return(const str &value) override;
-
     str generate_enum_end() override;
     str transform(Language other, const str &string) override;
 };
@@ -70,10 +67,8 @@ inline Generator* for_language(Language l)
     {
         case CPP:
             return new CPP_Generator;
-        case C:
-        case ASSEMBLY:
-            return nullptr;
     }
+    return nullptr;
 }
 
 #endif //SMN_GENERATOR_H

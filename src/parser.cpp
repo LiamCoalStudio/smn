@@ -1,6 +1,4 @@
 #include "simon.h"
-#include "elements.h"
-#include "functions/functions.h"
 #include <iostream>
 #include <generator.h>
 
