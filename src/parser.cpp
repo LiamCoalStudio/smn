@@ -2,16 +2,21 @@
 #include "elements.h"
 #include "functions/functions.h"
 #include <iostream>
+#include <generator.h>
 
 bool comment_mode;
 
-void parse_line(const str& str);
+void parse_line(str str);
+
+str current_function;
 
 /**
  * Parses a smn file, and does stuff with it.
  */
 void parse(std::istream *input)
 {
+    current_function = "";
+
     str obj;
     *input >> obj;
     if(obj.empty()) return;
@@ -22,8 +27,13 @@ void parse(std::istream *input)
     if(obj == "#[" || obj == "]#" || (comment_mode && obj != "]#")) return;
 
     bool body = obj[obj.size() - 1] == ':';
+    bool is_directive = obj[0] == '/';
 
-    while(body ? obj.find(";;") > obj.size() : !obj.ends_with(';') && !input->eof())
+    str match = ";";
+    if(body) match = ":";
+    if(is_directive) match = "/#";
+
+    while(!obj.ends_with(match) && !input->eof())
     {
         obj += ' ';
         str add;
@@ -41,11 +51,37 @@ void parse(std::istream *input)
 enum ParsePart
 {Name, Arguments, Body, Finished};
 
-void parse_line(const str& s)
+void parse_line(str s)
 {
 #if TESTING == true
     print_info(s);
 #endif
+
+    auto generator = for_language(global.language);
+
+    if(s == "/language: cpp/#")
+    {
+        global.language = Language::CPP;
+    }
+
+    if(s.substr(0, 6) == "/cpp/ ")
+    {
+        *global.output << generator->transform(CPP, s.substr(6, s.size() - 8)) << std::endl;
+    }
+
+    if(s.substr(0, 4) == "/c/ ")
+    {
+        *global.output << generator->transform(C, s.substr(4, s.size() - 8)) << std::endl;
+    }
+
+    if(s.substr(0, 6) == "/asm/ ")
+    {
+        *global.output << generator->transform(ASSEMBLY, s.substr(6, s.size() - 8)) << std::endl;
+    }
+
+    global.output->flush();
+
+    if(s[0] == '/') return;
 
     std::list<str> args, lines;
     str name;
@@ -53,22 +89,30 @@ void parse_line(const str& s)
     str buf;
     ParsePart part = Name;
     bool started;
-    LanguageElement* element;
+//    LanguageElement* element;
     char l = '\x00';
 
-    for(auto& c : s)
+    int i = 0;
+    while(true)
     {
+        char c = 0;
+        try {
+            c = s.front();
+            s = s.substr(1, s.size() - 1);
+        }
+        catch (std::out_of_range& e)
+        {  }
         switch (part)
         {
             case Name:
                 if(c == ' ')
                 {
-                    element = get(name);
+//                    element = get(name);
                     part = Arguments;
                 }
-                else if(c == ';' && l != ';' && l != '\x00')
+                else if(c == ';')
                 {
-                    element = get(name);
+//                    element = get(name);
                     part = Finished;
                 }
                 else name += c;
@@ -82,20 +126,11 @@ void parse_line(const str& s)
                     buf = "";
                     started = false;
                 }
-                else if(c == ';' && !element->has_body())
+                else if(c == ';')
                 {
-                    part = Finished;
                     args.emplace_back(buf);
-                }
-                else if(c == ';' && l != ';' && element->has_body())
-                {
-                    lines.emplace_back(buf + ";");
-                    buf = "";
-                }
-                else if(c == ';' && l == ';')
-                {
                     part = Finished;
-                    lines.pop_back();
+                    //lines.pop_back();
                 }
                 else if(c == ' ' && !started);
                 else
@@ -105,37 +140,52 @@ void parse_line(const str& s)
                 }
 
                 goto out_of_switch;
-
-            case Body:
-                if(c == ';' && l == ';') part = Finished;
-                else if(c == '\n' || c == '\r')
-                {
-                    lines.emplace_back(buf);
-                    buf = "";
-                }
-                else if(c == ' ' && started) buf += c;
-                else
-                {
-                    buf += c;
-                    started = true;
-                }
-                goto out_of_switch;
-
-            default: goto out_of_switch;
         }
         out_of_switch:
+            i++;
             if(part == Finished) break;
+//            if(element == nullptr) return;
             l = c;
     }
 
-    if(element == nullptr)
-    {
-        print_error("invalid -> " << name);
-        return;
-    }
+//    if(element == nullptr)
+//    {
+//        print_error("invalid -> " << name);
+//        return;
+//    }
 
-    if(element->has_body()) element->execute(args, args.size(), &global, lines);
-    else element->execute(args, args.size(), &global);
+    if(name == "func")
+    {
+        // This is a function declaration.
+        str type = args.front(); args.pop_front();
+        str name = args.front(); args.pop_front();
+        current_function = name;
+        *global.output << generator->generate_function_start(type, name, nullptr, 0);
+    }
+    else if(name == "end")
+    {
+        str type = args.front(); args.pop_front();
+        if(type == "func")
+            *global.output << generator->generate_function_end();
+    }
+    else if(name == "return")
+    {
+        *global.output << generator->generate_function_return(args.front()); args.pop_front();
+        *global.output << generator->generate_line_end();
+    }
+    else
+    {
+        str argsv[args.size()];
+        int j = 0;
+        for(auto& a : args)
+        {
+            argsv[j] = a;
+            j++;
+        }
+        *global.output << generator->generate_function_call(name, argsv, args.size());
+        *global.output << generator->generate_line_end();
+    }
+    global.output->flush();
 
     std::cout.flush();
     std::cerr.flush();

@@ -2,6 +2,7 @@
 #include "elements/module_element.h"
 #include "elements/function_element.h"
 #include <algorithm>
+#include <exec_function_element.h>
 
 /// Elements part of `use core`
 LanguageElement* core[] = {
@@ -39,11 +40,13 @@ void use_init()
  */
 void use(const str& name, std::list<LanguageElement*> elements)
 {
+    all_elements.pop_back();
     if(std::find(used.begin(), used.end(), name) != used.end()) return;
     for(auto& a : elements)
     {
         all_elements.emplace_back(a);
     }
+    all_elements.emplace_back(new ExecFunctionElement);
     used.emplace_back(name);
 }
 

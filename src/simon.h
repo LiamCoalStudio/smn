@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <list>
 #include <iostream>
+#include "languages.h"
 
 #define col_clear "\u001b[0m"
 #define col_red "\u001b[31m"
@@ -45,6 +46,8 @@ typedef std::unordered_map<str, str> var_context_t;
 struct global_t
 {
     var_context_t variable_context;
+    Language language;
+    std::ostream* output;
 };
 
 extern global_t global;

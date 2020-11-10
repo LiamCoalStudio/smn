@@ -23,12 +23,8 @@ void load(const str& name)
     //
     // If in testing mode, use the build path for modules. Otherwise,
     // use the normal paths of /usr/share/simon/modules and ./
-#if TESTING != true
-    str s = "/usr/share/simon/modules/lib" + name + ".so";
-    if(!exists(path(s))) s = "./lib" + name + ".so";
-#else
-    str s = module_path"/lib" + name + ".so";
-#endif
+    str s = "./lib" + name + ".so";
+    if(!exists(path(s))) s = "/usr/share/simon/modules/lib" + name + ".so";
     if(!exists(path(s)))
     {
         print_error("cannot find module " << name);

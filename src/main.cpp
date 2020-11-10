@@ -81,9 +81,9 @@ int main(int argc, char** argv)
     }
 
     // Initialize `use`
-    all_elements.emplace_back(new ExecFunctionElement);
     all_elements.emplace_back(new UseElement);
     all_elements.emplace_back(new IncludeElement);
+    all_elements.emplace_back(new ExecFunctionElement);
     use_init();
 
     // Set global variables
@@ -93,6 +93,8 @@ int main(int argc, char** argv)
     global.variable_context["@color.reset"] = col_clear;
     global.variable_context["@cmdline.file"] = str(parse.nonOption(0));
     global.variable_context["@simon.version"] = simon_version;
+
+    global.output = output;
 
     // Loop parse() until input has an error
     while(!!*input) ::parse(input);

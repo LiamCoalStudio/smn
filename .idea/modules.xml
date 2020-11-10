@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/smn-backup/.idea/enu.iml" filepath="$PROJECT_DIR$/smn-backup/.idea/enu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/smn.iml" filepath="$PROJECT_DIR$/.idea/smn.iml" />
     </modules>
   </component>
 </project>

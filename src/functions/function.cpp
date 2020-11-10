@@ -15,7 +15,7 @@ void Function::add(const std::string& s)
     input.emplace_back(s);
 }
 
-extern void parse_line(const std::string& s);
+extern void parse_line(std::string s);
 
 void Function::exec()
 {

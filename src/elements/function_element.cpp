@@ -4,6 +4,7 @@
 bool FunctionElement::matches(const std::string &line)
 {
     name = line.substr(0, line.size() - 1);
+    print_info(line.ends_with(':'));
     return line.ends_with(':');
 }
 

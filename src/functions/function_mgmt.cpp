@@ -5,10 +5,11 @@ std::unordered_map<std::string, Function*> funcs;
 
 Function* find_func(const std::string& name)
 {
-    if(!funcs.contains(name))
-        return nullptr;
-    else
-        return funcs[name];
+//    if(!funcs.contains(name))
+//        return nullptr;
+//    else
+//        return funcs[name];
+    return nullptr;
 }
 
 void create_func(const std::string& name, Function* f)
