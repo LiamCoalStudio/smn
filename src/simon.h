@@ -22,7 +22,7 @@
 #define argerr  print_error("not enough arguments"); \
                 return Err
 
-#define simon_version "0.0.1"
+#define simon_version "0.1.0"
 
 // If TESTING is undefined, define it.
 #ifndef TESTING
