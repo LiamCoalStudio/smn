@@ -1,17 +1,52 @@
+# Simon Language v0.1.0
+#
+# "The comments use the ruby!"
+#   - Probably just the wind, 2020
+
+# Language Element
+#
+# Simon compiles to other languages, and this line tells
+# the compiler which one to compile for.
 /language: cpp/#
 
-/cpp/ // This Slash-Hash is required =>/#
-/cpp/ // every directive./#
-
 # Modules
+#
+# Various modules are defined in `simondev.h`, allowing
+# you to include features in your program. You can even
+# make your own:
+# --: SMN :------------------------------------------------
+#  uses test;
+#  end uses;
+#  /cpp/ #include "header_that_defines_test.h" /#
+# ---------------------------------------------------------
+# The way Simon achieves this is by defining MODULE_<name>
+#
+# Note: In the #define MODULE_<name>, because `.` cannot be
+# put in #define, they are replaced with `$`
+
+# Include IO and simon.
 uses simon;
 uses simon.io;
+
+# Includes simondev
 end uses;
 
 # Main Function
+#
+# Just the C++ Main Function. Argument Count is stored in
+# argc, and the actual Arguments are in argv.
 main;
+    /* (You can also use C style comments like this) */
+
+    /* Prints the executable name to the console */
     println argv[0];
+
+    /* Creates a new variable... */
     newvar int, cat, 7;
-    setvar cat, 8;
+    setvar cat, 8; /* ...and sets it. */
+
+    /* Return a value of 0 */
     return 0;
+
+# End the function
 end func;
