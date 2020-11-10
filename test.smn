@@ -1,8 +1,17 @@
 /language: cpp/#
 
-/cpp/ // comment /#
+/cpp/ // This Slash-Hash is required =>/#
+/cpp/ // every directive./#
 
-func int, main;
-    println "Hello World!";
+# Modules
+uses simon;
+uses simon.io;
+end uses;
+
+# Main Function
+main;
+    println argv[0];
+    newvar int, cat, 7;
+    setvar cat, 8;
     return 0;
 end func;

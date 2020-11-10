@@ -11,5 +11,8 @@ add_compile_options(-DTESTING)
 
 link_libraries(dl)
 add_library(smnl STATIC src/main.cpp src/parser.cpp src/simon.h src/str.cpp src/str.h optionparser.h src/languages.h src/generators/generator.cpp src/generators/generator.h src/generators/cpp_generator.cpp)
+add_library(simondev src/simondev.h src/simondev.cpp)
 link_libraries(smnl dl)
 add_executable(smn src/main.cpp)
+
+install(FILES src/simondev.h DESTINATION /usr/include)

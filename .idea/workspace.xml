@@ -16,6 +16,7 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="smn" targetName="simondev" />
       <config projectName="smn" targetName="smn" />
       <config projectName="smn" targetName="smnl" />
     </generated>
@@ -27,45 +28,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/simondev.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/simondev.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/exec_function_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/exec_function_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/function_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/function_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/include_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/include_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/module_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/module_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/set_variable_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/set_variable_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/use_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/elements/use_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/language_element.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/io/print_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/io/print_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/io/println_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/io/println_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/add_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/add_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/divide_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/divide_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/modulus_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/modulus_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/multiply_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/multiply_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/subtract_element.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/elements/math/subtract_element.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/std.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/str.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/std/str.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/use.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/use.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.smn" beforeDir="false" afterPath="$PROJECT_DIR$/test.smn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,9 +57,6 @@
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="a6s9ir5y" />
-  </component>
-  <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-Debug-smnl" />
   </component>
   <component name="ProjectId" id="1jcVGvGGFjaf3CZwjPrKXZBJ0By" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -116,7 +83,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -138,6 +105,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="simondev" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="simondev" CONFIG_NAME="Testing">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="smn" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-o output.cpp ../test.smn" REDIRECT_INPUT="false" WORKING_DIR="file://$CMakeCurrentBuildDir$" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="smn" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -154,6 +126,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="CMake Application.simondev" />
       <item itemvalue="CMake Application.smn" />
       <item itemvalue="CMake Application.smnl" />
     </list>
@@ -174,7 +147,7 @@
       <workItem from="1604378726534" duration="2641000" />
       <workItem from="1604381464019" duration="5319000" />
       <workItem from="1604984171065" duration="76000" />
-      <workItem from="1604984247302" duration="11334000" />
+      <workItem from="1604984247302" duration="16377000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1604189420912</created>
@@ -358,7 +331,35 @@
       <option name="project" value="LOCAL" />
       <updated>1605002878046</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="remove all unnecessary code">
+      <created>1605003051369</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1605003051369</updated>
+    </task>
+    <task id="LOCAL-00028" summary="remove all unnecessary code">
+      <created>1605003128748</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1605003128748</updated>
+    </task>
+    <task id="LOCAL-00029" summary="remove all unnecessary code">
+      <created>1605003219903</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1605003219903</updated>
+    </task>
+    <task id="LOCAL-00030" summary="remove all unnecessary code">
+      <created>1605003280426</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1605003280426</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,13 +397,14 @@
     <MESSAGE value="Add MultiplyElement [mul, multiply]" />
     <MESSAGE value="Add DivideElement [div, divide]" />
     <MESSAGE value="everything is fine" />
-    <option name="LAST_COMMIT_MESSAGE" value="everything is fine" />
+    <MESSAGE value="remove all unnecessary code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove all unnecessary code" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="556" y="336" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605003016865">
+    <state x="556" y="336" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605006278282">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state x="556" y="336" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605003016865" />
+    <state x="556" y="336" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605006278282" />
     <state x="728" y="441" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604190752292" />
     <state x="728" y="441" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604985375557" />
     <state x="765" y="406" width="590" height="308" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604395551826">
@@ -454,32 +456,32 @@
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
     <state x="1123" y="436" width="374" height="652" key="Github.UntrackedFilesDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604189379635" />
-    <state width="1818" height="367" key="GridCell.Tab.0.bottom" timestamp="1605002931510">
+    <state width="1818" height="367" key="GridCell.Tab.0.bottom" timestamp="1605008039875">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="367" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605002931510" />
+    <state width="1818" height="367" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605008039875" />
     <state width="1670" height="197" key="GridCell.Tab.0.bottom/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1436" height="371" key="GridCell.Tab.0.bottom/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604985691204" />
-    <state width="1818" height="367" key="GridCell.Tab.0.center" timestamp="1605002931510">
+    <state width="1818" height="367" key="GridCell.Tab.0.center" timestamp="1605008039874">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.center/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="367" key="GridCell.Tab.0.center/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605002931510" />
+    <state width="1818" height="367" key="GridCell.Tab.0.center/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605008039874" />
     <state width="1670" height="197" key="GridCell.Tab.0.center/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1436" height="371" key="GridCell.Tab.0.center/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604985691204" />
-    <state width="1818" height="367" key="GridCell.Tab.0.left" timestamp="1605002931510">
+    <state width="1818" height="367" key="GridCell.Tab.0.left" timestamp="1605008039874">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.left/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="367" key="GridCell.Tab.0.left/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605002931510" />
+    <state width="1818" height="367" key="GridCell.Tab.0.left/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605008039874" />
     <state width="1670" height="197" key="GridCell.Tab.0.left/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1436" height="371" key="GridCell.Tab.0.left/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604985691204" />
-    <state width="1818" height="367" key="GridCell.Tab.0.right" timestamp="1605002931510">
+    <state width="1818" height="367" key="GridCell.Tab.0.right" timestamp="1605008039875">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.right/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="367" key="GridCell.Tab.0.right/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605002931510" />
+    <state width="1818" height="367" key="GridCell.Tab.0.right/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605008039875" />
     <state width="1670" height="197" key="GridCell.Tab.0.right/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="1436" height="371" key="GridCell.Tab.0.right/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604985691204" />
     <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1604984245501">
@@ -495,10 +497,10 @@
     </state>
     <state x="693" y="316" width="728" height="482" key="MultipleFileMergeDialog/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604215798918" />
     <state x="912" y="415" key="MultipleFileMergeDialog/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604381657404" />
-    <state x="774" y="343" width="900" height="737" key="SettingsEditor" timestamp="1604395623575">
+    <state x="774" y="343" width="910" height="737" key="SettingsEditor" timestamp="1605008063291">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state x="774" y="343" width="900" height="737" key="SettingsEditor/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1604395623575" />
+    <state x="774" y="343" width="910" height="737" key="SettingsEditor/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605008063291" />
     <state x="598" y="495" width="1497" height="737" key="SettingsEditor/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604190659324" />
     <state x="1021" y="483" width="1022" height="737" key="SettingsEditor/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604378832887" />
     <state x="1197" y="619" width="303" height="178" key="VCS.ChangelistChooser" timestamp="1604381367061">
@@ -529,11 +531,11 @@
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
     <state x="941" y="650" width="626" height="286" key="org.intellij.images.editor.actions.BackgroundImageDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604103480823" />
-    <state x="901" y="394" width="291" height="342" key="refactoring.ChangeSignatureDialog" timestamp="1604999786112">
+    <state x="901" y="394" width="563" height="436" key="refactoring.ChangeSignatureDialog" timestamp="1605005841033">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state x="901" y="394" width="291" height="342" key="refactoring.ChangeSignatureDialog/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604218668290" />
-    <state x="901" y="394" key="refactoring.ChangeSignatureDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1604999786112" />
+    <state x="901" y="394" width="563" height="436" key="refactoring.ChangeSignatureDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605005841033" />
     <state x="1191" y="519" width="224" height="436" key="refactoring.ChangeSignatureDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604113131058" />
     <state x="726" y="252" key="run.anything.popup" timestamp="1604221693931">
       <screen x="56" y="27" width="1864" height="1053" />

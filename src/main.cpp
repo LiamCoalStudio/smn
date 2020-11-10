@@ -69,7 +69,7 @@ int main(int argc, char** argv)
     }
 
     istream* input = new ifstream(parse.nonOption(0), ifstream::in);
-    ostream* output = new ofstream(output_name, ofstream::out | ofstream::trunc);
+    auto* output = new fstream(output_name, fstream::out | fstream::trunc | fstream::in);
 
     if(!input)
     {
@@ -86,6 +86,8 @@ int main(int argc, char** argv)
     global.variable_context["@simon.version"] = simon_version;
 
     global.output = output;
+
+    global.output->flush();
 
     // Loop parse() until input has an error
     while(!!*input) ::parse(input);

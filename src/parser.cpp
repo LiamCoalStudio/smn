@@ -6,6 +6,8 @@ bool comment_mode;
 
 void parse_line(str str);
 
+str replace_all(str& basicString, char i, char i1);
+
 str current_function;
 
 /**
@@ -20,9 +22,15 @@ void parse(std::istream *input)
     if(obj.empty()) return;
 
     // Comments
-    if(obj == "#[" && !comment_mode) comment_mode = true;
-    if(obj == "]#" && comment_mode) comment_mode = false;
-    if(obj == "#[" || obj == "]#" || (comment_mode && obj != "]#")) return;
+    if(obj == "/*" && !comment_mode) comment_mode = true;
+    if(obj == "*/" && comment_mode) comment_mode = false;
+    if(obj == "/*" || obj == "*/" || (comment_mode && obj != "*/")) return;
+    if(obj.starts_with("#"))
+    {
+        char c = 0;
+        while(c != '\n') input->read(&c, 1);
+        return;
+    }
 
     bool body = obj[obj.size() - 1] == ':';
     bool is_directive = obj[0] == '/';
@@ -91,6 +99,9 @@ void parse_line(str s)
     char l = '\x00';
 
     int i = 0;
+
+    if(s[0] == '#') return;
+
     while(true)
     {
         char c = 0;
@@ -160,16 +171,47 @@ void parse_line(str s)
         current_function = name;
         *global.output << generator->generate_function_start(type, name, nullptr, 0);
     }
+    else if(name == "main")
+    {
+        *global.output << generator->generate_function_start("int",
+                                                             "main",
+                                                             new str[2] {"int argc", "char** argv"},
+                                                             2);
+    }
     else if(name == "end")
     {
         str type = args.front(); args.pop_front();
         if(type == "func")
             *global.output << generator->generate_function_end();
+        else if(type == "uses")
+            *global.output << "#include <simondev.h>" << std::endl << std::endl;
     }
     else if(name == "return")
     {
         *global.output << generator->generate_function_return(args.front()); args.pop_front();
         *global.output << generator->generate_line_end();
+    }
+    else if(name == "newvar")
+    {
+        str type = args.front(); args.pop_front();
+        str name_ = args.front(); args.pop_front();
+        str value;
+        if(!args.empty()) value = args.front(); args.pop_front();
+        *global.output << generator->generate_variable_define(type, name_, value);
+        *global.output << generator->generate_line_end();
+    }
+    else if(name == "setvar")
+    {
+        str name_ = args.front(); args.pop_front();
+        str value = args.front(); args.pop_front();
+        *global.output << generator->generate_variable_set(name_, value);
+        *global.output << generator->generate_line_end();
+    }
+    else if(name == "uses")
+    {
+        str module = args.front(); args.pop_front();
+        str replaced = replace_all(module, '.', '$');
+        *global.output << "#define MODULE_" << replaced << std::endl;
     }
     else
     {
@@ -187,4 +229,16 @@ void parse_line(str s)
 
     std::cout.flush();
     std::cerr.flush();
+}
+
+str replace_all(str& basicString, char i, char i1)
+{
+    long loc;
+    loc = basicString.find(i);
+    while(loc < basicString.size())
+    {
+        basicString.replace(loc, 1, str() + i1);
+        loc = basicString.find(i);
+    }
+    return basicString;
 }
