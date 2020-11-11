@@ -43,7 +43,7 @@ jobs:
       shell: bash
       run: sudo cmake --install .
 
-    - name: Build SMN
+    - name: Build All
       working-directory: ${{runner.workspace}}/build
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
