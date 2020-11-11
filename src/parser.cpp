@@ -76,6 +76,10 @@ void parse_line(str s)
     {
         global.language = Language::CPP;
     }
+    if(s == "/language: c/#")
+    {
+        global.language = Language::C;
+    }
     if(s == "/test/#")
     {
         global.is_test = true;
