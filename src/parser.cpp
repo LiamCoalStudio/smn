@@ -91,7 +91,6 @@ void parse_line(str s)
     if(s.substr(0, 4) == "/c/ ")
     {
         *global.output << generator->transform(C, s.substr(4, s.size() - 6)) << std::endl;
-        print_info(s << " = " << s.substr(4, s.size() - 6));
     }
     if(s.substr(0, 6) == "/asm/ ")
     {
@@ -142,7 +141,6 @@ void parse_line(str s)
                 goto out_of_switch;
 
             case Arguments:
-                print_info(paren_level);
                 if(c == ',' && paren_level == 0)
                 {
                     args.emplace_back(buf);
