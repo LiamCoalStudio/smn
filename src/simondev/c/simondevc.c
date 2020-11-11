@@ -44,3 +44,28 @@ void* popp(long s)
     { c[i] = pop(); }
     return c;
 }
+
+file open(str name, str mode)
+{ return fopen(name, mode); }
+
+void write(file out, void *t, int size)
+{ fwrite(t, 1, size, out); }
+
+void* read(file in, int size)
+{
+    void* t = malloc(size);
+    fread(t, 1, size, in);
+    return t;
+}
+
+void close_in(file f)
+{ fclose(f); }
+
+void flush(file f)
+{ fflush(f); }
+
+void println(str text)
+{ puts(text); }
+
+void print(str text)
+{ printf("%s", text); }

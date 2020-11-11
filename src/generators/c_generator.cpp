@@ -141,7 +141,7 @@ str C_Generator::transform(Language other, const str &string)
 
 void C_Generator::compile(str input_file, str output_file)
 {
-    if(system(("gcc -x c -o " + output_file + " " + input_file + " -lsimondevc").c_str()) > 0)
+    if(system(("gcc -x c -o " + output_file + " -lsimondevc " + input_file).c_str()) > 0)
         exit(1);
 }
 

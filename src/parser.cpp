@@ -90,7 +90,8 @@ void parse_line(str s)
     }
     if(s.substr(0, 4) == "/c/ ")
     {
-        *global.output << generator->transform(C, s.substr(4, s.size() - 8)) << std::endl;
+        *global.output << generator->transform(C, s.substr(4, s.size() - 6)) << std::endl;
+        print_info(s << " = " << s.substr(4, s.size() - 6));
     }
     if(s.substr(0, 6) == "/asm/ ")
     {
@@ -110,7 +111,7 @@ void parse_line(str s)
 //    LanguageElement* element;
     char l = '\x00';
 
-    int i = 0;
+    int i = 0, paren_level = 0;
 
     if(s[0] == '#') return;
 
@@ -141,7 +142,8 @@ void parse_line(str s)
                 goto out_of_switch;
 
             case Arguments:
-                if(c == ',')
+                print_info(paren_level);
+                if(c == ',' && paren_level == 0)
                 {
                     args.emplace_back(buf);
                     buf = "";
@@ -154,6 +156,18 @@ void parse_line(str s)
                     //lines.pop_back();
                 }
                 else if(c == ' ' && !started);
+                else if(c == '(')
+                {
+                    paren_level++;
+                    buf += c;
+                    started = true;
+                }
+                else if(c == ')' && paren_level > 0)
+                {
+                    paren_level--;
+                    buf += c;
+                    started = true;
+                }
                 else
                 {
                     buf += c;

@@ -23,12 +23,12 @@ typedef char *str;
 extern void *_stack;
 extern int _stack_pointer;
 
-void start_stack();
-void end_stack();
-void push(char c);
-char pop();
-void pushp(void *v, long s);
-void *popp(long s);
+extern void start_stack();
+extern void end_stack();
+extern void push(char c);
+extern char pop();
+extern void pushp(void *v, long s);
+extern void *popp(long s);
 #endif
 
 #ifdef MODULE_simon$io$fs
@@ -48,32 +48,16 @@ typedef file iofile;
 #define MODE_READ_WRITE_BIN MODE_READ_WRITE"b"
 #define MODE_APPEND_BIN MODE_APPEND"b"
 
-file open(str name, str mode)
-{ return fopen(name, mode); }
-
-void write(file out, void *t, int size)
-{ fwrite(t, 1, size, out); }
-
-void* read(file in, int size)
-{
-    void* t = malloc(size);
-    fread(t, 1, size, in);
-    return t;
-}
-
-void close_in(file f)
-{ fclose(f); }
-
-void flush(file f)
-{ fflush(f); }
+extern file open(str name, str mode);
+extern void write(file out, void *t, int size);
+extern void* read(file in, int size);
+extern void close_in(file f);
+extern void flush(file f);
 #endif
 
 #ifdef MODULE_simon$io
-void println(str text)
-{ puts(text); }
-
-void print(str text)
-{ printf("%s", text); }
+extern void println(str text);
+extern void print(str text);
 #endif
 
 #ifdef MODULE_simon$math
