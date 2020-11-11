@@ -209,6 +209,8 @@ void parse_line(str s)
             *global.output << generator->generate_function_end();
         else if(type == "uses")
             *global.output << "#include <simondev" << generator->name() << ".h>" << std::endl << std::endl;
+        else if(type == "class")
+            *global.output << generator->generate_class_end();
     }
     else if(name == "return")
     {
@@ -254,6 +256,25 @@ void parse_line(str s)
         str module = args.front(); args.pop_front();
         str replaced = replace_all(module, '.', '$');
         *global.output << "#define MODULE_" << replaced << std::endl;
+    }
+    else if(name == "class")
+    {
+        str name_ = args.front(); args.pop_front();
+        std::list<str> bases;
+        for(auto& a : args)
+            bases.emplace_back(a);
+        str basesv[args.size()];
+        int j = 0;
+        for(auto& a : bases)
+        {
+            basesv[j] = a;
+            j++;
+        }
+        *global.output << generator->generate_class_start(name_, basesv, bases.size());
+    }
+    else if(name == "visibility")
+    {
+        *global.output << generator->generate_class_visibility(args.front()); args.pop_front();
     }
     else if(name == "assert" && global.is_test)
     {
