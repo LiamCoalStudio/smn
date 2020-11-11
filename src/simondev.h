@@ -5,22 +5,15 @@
 #include <cstdlib>
 #include <iostream>
 
-//#ifdef TESTING
-//#define MODULE_simon
-//#define MODULE_simon$io
-//#define MODULE_simon$math
-//#endif
+#define MODULE_simon
+#define MODULE_simon$io
+#define MODULE_simon$math
+#define MODULE_simon$io$fs
 
 #define allocate(p, s) p = static_cast<typeof(p)>(malloc(s))
 #define declare(type, name) type name()
 
 typedef std::string str;
-typedef std::ifstream ifile;
-typedef std::ofstream ofile;
-typedef std::fstream iofile;
-typedef std::istream istr;
-typedef std::ostream ostr;
-typedef std::iostream iostr;
 
 #ifdef MODULE_simon
 extern void* _stack;
@@ -34,7 +27,44 @@ void push(void* v, long s);
 void* pop(long s);
 #endif
 
+#ifdef MODULE_simon$io$fs
+#define MODULE_simon$io
+
+#include <fstream>
+
+typedef std::ifstream ifile;
+typedef std::ofstream ofile;
+typedef std::fstream iofile;
+
+inline ifile open_in(const str& name)
+{ return ifile(name); }
+inline ofile open_out(const str& name)
+{ return ofile(name); }
+inline iofile open_io(const str& name)
+{ return iofile(name); }
+
+template<typename T>
+inline void write(ofile out, T t)
+{ out << t; }
+
+template<typename T>
+inline T read(ifile in)
+{ T t; in >> t; return t; }
+
+template<class T>
+inline void close(T stream)
+{ stream.close(); }
+
+template<class T>
+inline void flush(T stream)
+{ stream.flush(); }
+#endif
+
 #ifdef MODULE_simon$io
+typedef std::istream istr;
+typedef std::ostream ostr;
+typedef std::iostream iostr;
+
 template<typename T>
 void println(const T& text)
 { std::cout << text << std::endl; }
@@ -43,6 +73,7 @@ template<typename T>
 void print(const T& text)
 { std::cout << text; }
 #endif
+
 
 #ifdef MODULE_simon$math
 #include <cmath>
