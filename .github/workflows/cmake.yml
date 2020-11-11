@@ -1,6 +1,6 @@
 name: CMake
 
-on: [push]
+on: [push, workflow_dispatch]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -37,3 +37,12 @@ jobs:
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build . --config $BUILD_TYPE -- -j1 -B
+      
+    - name: Install
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: cmake --install .
+    - name: Test
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: cmake --test . -- -j1 -B
