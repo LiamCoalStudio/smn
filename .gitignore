@@ -3,3 +3,4 @@ cmake-build-testing
 cmake-build-release/
 
 venv/
+tests/*.cpp
