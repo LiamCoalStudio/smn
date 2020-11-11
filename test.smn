@@ -82,6 +82,7 @@ func void, test;
 end func; /* void test */
 
 class Test;
+    visibility public;
     func void, print;
         println "Test";
     end func;

@@ -17,7 +17,7 @@ str CPP_Generator::generate_function_call(const str &name, str *args, long arg_c
 str CPP_Generator::generate_function_start(const str& type, const str &name, str *args, long arg_count)
 {
     str out = "\n" + indent();
-    if(class_info._unimpl)
+    if(class_info._class)
         out += "virtual ";
     out += type + ' ';
     out += generate_function_call(name, args, arg_count);
@@ -94,7 +94,7 @@ str CPP_Generator::generate_class_visibility(const str &vis)
 }
 str CPP_Generator::generate_class_start(const str &name, str *bases, long count)
 {
-    str out = indent() + "class " + name;
+    str out = "\n" + indent() + "class " + name;
     if(count > 0)
     {
         out += "\n: ";
@@ -106,7 +106,7 @@ str CPP_Generator::generate_class_start(const str &name, str *bases, long count)
                 out += ", ";
         }
     }
-    out += " {";
+    out += " {\n";
     class_info._class = true;
     _indent++;
     return out;
@@ -137,7 +137,8 @@ str CPP_Generator::generate_interface_end()
 
 str CPP_Generator::generate_struct_start(const str &name)
 {
-    return generate_class_start(name, nullptr, 0).replace(0, 5, "struct");
+    str out = generate_class_start(name, nullptr, 0);
+    return out.replace(out.find("class"), 5, "struct");
 }
 str CPP_Generator::generate_struct_end()
 {
