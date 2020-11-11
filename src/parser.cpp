@@ -5,10 +5,17 @@
 bool comment_mode;
 
 void parse_line(str str);
-
 str replace_all(str& basicString, char i, char i1);
 
 str current_function;
+
+bool hasEnding(std::string const &fullString, std::string const &ending)
+{
+    if (fullString.length() >= ending.length())
+        return (0 == fullString.compare (fullString.length() - ending.length(), ending.length(), ending));
+    else
+        return false;
+}
 
 /**
  * Parses a smn file, and does stuff with it.
@@ -25,7 +32,7 @@ void parse(std::istream *input)
     if(obj == "/*" && !comment_mode) comment_mode = true;
     if(obj == "*/" && comment_mode) comment_mode = false;
     if(obj == "/*" || obj == "*/" || (comment_mode && obj != "*/")) return;
-    if(obj.starts_with("#"))
+    if(obj[0] == '#')
     {
         char c = 0;
         while(c != '\n') input->read(&c, 1);
@@ -39,7 +46,7 @@ void parse(std::istream *input)
     if(body) match = ":";
     if(is_directive) match = "/#";
 
-    while(!obj.ends_with(match) && !input->eof())
+    while(!hasEnding(obj, match) && !input->eof())
     {
         obj += ' ';
         str add;

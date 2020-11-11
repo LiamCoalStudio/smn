@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(smn)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 include_directories(src)
@@ -12,7 +12,7 @@ if(${TESTING})
 endif()
 
 link_libraries(dl)
-add_library(smnl STATIC src/main.cpp src/parser.cpp src/simon.h src/str.cpp src/str.h optionparser.h src/languages.h src/generators/generator.h src/generators/cpp_generator.cpp)
+add_library(smnl STATIC src/main.cpp src/parser.cpp src/simon.h optionparser.h src/languages.h src/generators/generator.h src/generators/cpp_generator.cpp)
 add_library(simondev src/simondev.h src/simondev.cpp)
 link_libraries(smnl dl)
 add_executable(smn src/main.cpp)

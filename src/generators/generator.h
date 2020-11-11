@@ -1,7 +1,7 @@
 #ifndef SMN_GENERATOR_H
 #define SMN_GENERATOR_H
 
-#include <str.h>
+#include <simon.h>
 
 class CPP_Generator;
 class Generator
