@@ -3,7 +3,19 @@
 
 #include <simon.h>
 
-class CPP_Generator;
+#define unsupported(str) \
+{ throw UnsupportedFeatureException("classes not supported in C"); }
+
+class UnsupportedFeatureException : public std::exception
+{
+private:
+    str _what;
+public:
+    explicit UnsupportedFeatureException(str what);
+
+    const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW override;
+};
+
 class Generator
 {
 public:
@@ -65,7 +77,6 @@ public:
     str transform(Language other, const str &string) override;
     void compile(str input_file, str output_file) override;
     str name() override;
-
     str generate_assert_test(str condtition, str name) override;
 };
 
@@ -78,5 +89,14 @@ inline Generator* for_language(Language l)
     }
     return nullptr;
 }
+
+extern int _indent;
+extern str indent();
+struct class_info_t
+{
+    bool _class;
+    bool _unimpl;
+};
+extern class_info_t class_info;
 
 #endif //SMN_GENERATOR_H

@@ -1,20 +1,4 @@
 #include "generator.h"
-#include <cstdarg>
-#include <unistd.h>
-
-struct {
-    bool _class;
-    bool _unimpl;
-} class_info;
-
-int _indent = 0;
-
-str indent()
-{
-    str out;
-    for (int i = 0; i < _indent; ++i) out += "    ";
-    return out;
-}
 
 str CPP_Generator::generate_function_call(const str &name, str *args, long arg_count)
 {
@@ -101,7 +85,7 @@ str CPP_Generator::generate_switch_break()
 }
 str CPP_Generator::generate_switch_end()
 {
-    return "}\n";
+    return indent() + "}\n";
 }
 
 str CPP_Generator::generate_class_visibility(const str &vis)
@@ -196,12 +180,12 @@ str CPP_Generator::generate_function_return(const str &value)
 
 void CPP_Generator::compile(str input_file, str output_file)
 {
-    if(system(("g++ -x c++ -o " + output_file + " " + input_file + " -lsimondev").c_str()) > 0)
+    if(system(("g++ -x c++ -o " + output_file + " " + input_file + " -lsimondevcxx").c_str()) > 0)
         exit(1);
 }
 
 str CPP_Generator::name()
-{ return "cpp"; }
+{ return "cxx"; }
 
 str CPP_Generator::generate_assert_test(str c, str name)
 {
@@ -214,3 +198,4 @@ str CPP_Generator::generate_assert_test(str c, str name)
     out += generate_if_end();
     return out;
 }
+

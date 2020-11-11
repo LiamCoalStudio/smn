@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(smn)
+project(smn CXX C)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_C_STANDARD 99)
 
 include_directories(.)
 include_directories(src)
@@ -13,13 +14,20 @@ if(${TESTING})
 endif()
 
 link_libraries(dl)
-add_library(smnl STATIC src/main.cpp src/parser.cpp src/simon.h optionparser.h src/languages.h src/generators/generator.h src/generators/cpp_generator.cpp)
-add_library(simondev src/simondev.h src/simondev.cpp)
+add_library(smnl STATIC src/main.cpp src/parser.cpp src/simon.h optionparser.h src/languages.h src/generators/generator.h src/generators/cpp_generator.cpp src/generators/c_generator.cpp src/generators/generator.cpp)
+add_library(simondevcxx src/simondev/cxx/simondevcxx.h src/simondev/cxx/simondevcxx.cpp)
+add_library(simondevc src/simondev/c/simondevc.h src/simondev/c/simondevc.c)
 link_libraries(smnl dl)
 add_executable(smn src/main.cpp)
+add_dependencies(smn simondevcxx simondevc)
 
-install(FILES ${CMAKE_SOURCE_DIR}/src/simondev.h DESTINATION /usr/include)
-install(TARGETS simondev smnl DESTINATION /usr/lib)
+install(
+        FILES
+            ${CMAKE_SOURCE_DIR}/src/simondev/cxx/simondevcxx.h
+            ${CMAKE_SOURCE_DIR}/src/simondev/c/simondevc.h
+        DESTINATION /usr/include
+)
+install(TARGETS simondevcxx simondevc smnl DESTINATION /usr/lib)
 install(TARGETS smn DESTINATION /usr/bin)
 
 enable_testing()

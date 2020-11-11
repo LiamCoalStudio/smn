@@ -192,7 +192,7 @@ void parse_line(str s)
         if(type == "func")
             *global.output << generator->generate_function_end();
         else if(type == "uses")
-            *global.output << "#include <simondev.h>" << std::endl << std::endl;
+            *global.output << "#include <simondev" << generator->name() << ".h>" << std::endl << std::endl;
     }
     else if(name == "return")
     {
