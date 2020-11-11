@@ -206,7 +206,7 @@ str CPP_Generator::name()
 str CPP_Generator::generate_assert_test(str c, str name)
 {
     str out;
-    out += generate_if(c);
+    out += generate_if("!(" + c + ")");
     out += generate_function_call("println", new str[1] {"\"Test failed: \"" + name}, 1);
     out += generate_line_end();
     out += generate_function_return("1");

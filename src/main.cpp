@@ -37,7 +37,7 @@ const option::Descriptor usage[] =
          "  --help            Print usage and exit." },
         {OUTPUT, 0, "o", "out", arg_req,
          "  --out, -o         Output here." },
-        {GENERATE_ONLY, 0, "g", "gen", arg_req,
+        {GENERATE_ONLY, 0, "g", "gen", option::Arg::None,
          "  --gen, -g         Only generate source files." },
         {0, 0, 0, 0, 0, 0}
 };
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
     }
 
     istream* input = new ifstream(parse.nonOption(0), ifstream::in);
-    auto* output = new fstream(str("/tmp/") + output_name + ".src", fstream::out | fstream::trunc | fstream::in);
+    auto* output = new fstream("/tmp/smn0.tmp", fstream::out | fstream::trunc | fstream::in);
 
     if(!input)
     {
@@ -94,19 +94,17 @@ int main(int argc, char** argv)
     // Loop parse() until input has an error
     while(!!*input) ::parse(input);
 
-    if(!input->eof()) return 1;
-    if(!options[GENERATE_ONLY])
-    {
-        auto gen = for_language(global.language);
-        gen->compile(str("/tmp/") + output_name + ".src",
-                     output_name);
-    }
-    else
+    if (options[GENERATE_ONLY])
     {
         std::ofstream dest(output_name, std::ios::binary);
         output->seekg(0);
         dest << output->rdbuf();
+    } else
+    {
+        auto gen = for_language(global.language);
+        gen->compile("/tmp/smn0.tmp",
+                     output_name);
     }
 
-    return input->eof() ? 0 : 1;
+    return 0;
 }

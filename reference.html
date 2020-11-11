@@ -365,6 +365,16 @@ ul.auto-toc {
 
 <div class="section" id="simon-language">
 <h1>Simon Language</h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Author:</th><td class="field-body">Liam Cole</td>
+</tr>
+<tr class="field"><th class="field-name">Version:</th><td class="field-body">0.1.1b</td>
+</tr>
+</tbody>
+</table>
 <p><tt class="docutils literal">it cat language :3</tt></p>
 </div>
 <div class="section" id="tutorial">
@@ -373,7 +383,194 @@ ul.auto-toc {
 <h2>Installing</h2>
 <ol class="arabic simple">
 <li>Clone <a class="reference external" href="https://github.com/LiamCoal/smn">this repository</a></li>
+<li>Enter the directory it cloned to.</li>
+<li>Run: <tt class="docutils literal">mkdir build &amp;&amp; cd build</tt></li>
+<li>Run: <tt class="docutils literal">cmake ..</tt></li>
+<li>Run: <tt class="docutils literal">cmake <span class="pre">--build</span> . <span class="pre">--</span> <span class="pre">-j8</span></tt></li>
+<li>Run: <tt class="docutils literal">cmake <span class="pre">--build</span> . <span class="pre">--</span> test <span class="pre">-j1</span></tt></li>
+<li>Run: <tt class="docutils literal">sudo cmake <span class="pre">--install</span> .</tt></li>
 </ol>
+</div>
+<div class="section" id="using">
+<h2>Using</h2>
+<p>Here is some example code:</p>
+<pre class="literal-block">
+/language: cpp/#
+
+uses simon.io;
+end uses;
+
+main;
+    println &quot;test&quot;;
+    return 0;
+end func;
+</pre>
+<p>Save that to <tt class="docutils literal">test.smn</tt>.</p>
+<p>Running <tt class="docutils literal">smn <span class="pre">-o</span> test test.smn</tt>, then running <tt class="docutils literal">./test</tt> should print:</p>
+<pre class="literal-block">
+test
+</pre>
+</div>
+</div>
+<div class="section" id="spec">
+<h1>Spec</h1>
+<div class="section" id="simon">
+<h2>1 simon</h2>
+<p><tt class="docutils literal">uses simon;</tt></p>
+<div class="section" id="stack-functions">
+<h3>1.1 Stack Functions</h3>
+<p>The Stack is an array of chars 65536 bytes wide.
+It can be used to pass arguments to a self-defined function.</p>
+<div class="section" id="start-stack">
+<h4>1.1.1 <tt class="docutils literal">start_stack;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Starts the Stack.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body">0.1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="end-stack">
+<h4>1.1.2 <tt class="docutils literal">end_stack;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Stops the Stack.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body">0.1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="push-char">
+<h4>1.1.3 <tt class="docutils literal">push &lt;char&gt;;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Pushs a byte onto the stack.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body">0.1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="char-pop">
+<h4>1.1.4 <tt class="docutils literal">&lt;char&gt; = pop;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Pops a byte off the stack.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body">0.1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="push-void-long">
+<h4>1.1.5 <tt class="docutils literal">push <span class="pre">&lt;void*&gt;,</span> &lt;long&gt;;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Pushes multiple bytes onto the stack.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body">0.1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="void-pop-long">
+<h4>1.1.6 <tt class="docutils literal">&lt;void*&gt; = pop &lt;long&gt;;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Pops multiple bytes off the stack.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body">0.1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="simon-io">
+<h2>2 simon.io</h2>
+<p><tt class="docutils literal">uses simon.io;</tt></p>
+<div class="section" id="file-functions">
+<h3>2.1 File Functions</h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Italic:</th><td class="field-body"><em>Not implemented.</em></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="ifile-open-in-str">
+<h4><em>2.1.1</em> <tt class="docutils literal">&lt;ifile&gt; = open_in &lt;str&gt;;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Opens a file in input mode.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body"><!-- TODO Not implemented. -->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ofile-open-out-str">
+<h4><em>2.1.2</em> <tt class="docutils literal">&lt;ofile&gt; = open_out &lt;str&gt;;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Opens a file in output mode.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body"><!-- TODO Not implemented. -->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="iofile-open-io-str">
+<h4><em>2.1.3</em> <tt class="docutils literal">&lt;iofile&gt; = open_io &lt;str&gt;;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Opens a file in both input and output mode.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body"><!-- TODO Not implemented. -->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="write-stream-void-long">
+<h4><em>2.1.4</em> <tt class="docutils literal">write &lt;_stream_&gt;, <span class="pre">&lt;void*&gt;,</span> &lt;long&gt;;</tt></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Description:</th><td class="field-body">Writes some data to a file.</td>
+</tr>
+<tr class="field"><th class="field-name">Since:</th><td class="field-body"><!-- TODO Not implemented. -->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
