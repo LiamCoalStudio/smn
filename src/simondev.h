@@ -44,19 +44,19 @@ inline iofile open_io(const str& name)
 { return iofile(name); }
 
 template<typename T>
-inline void write(ofile out, T t)
+inline void write(ofile& out, T t)
 { out << t; }
 
 template<typename T>
-inline T read(ifile in)
+inline T read(ifile& in)
 { T t; in >> t; return t; }
 
 template<class T>
-inline void close(T stream)
+inline void close(T& stream)
 { stream.close(); }
 
 template<class T>
-inline void flush(T stream)
+inline void flush(T& stream)
 { stream.flush(); }
 #endif
 
