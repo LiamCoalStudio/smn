@@ -80,3 +80,9 @@ end func; /* main */
 func void, test;
     println "This is coming from the test function!";
 end func; /* void test */
+
+class Test;
+    func void, print;
+        println "Test";
+    end func;
+end class;

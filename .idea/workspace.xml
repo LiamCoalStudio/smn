@@ -33,7 +33,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="" />
+    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.smn" beforeDir="false" afterPath="$PROJECT_DIR$/test.smn" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +118,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="smn" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-g -o output.c ../tests/test_c_stack.c.smn" REDIRECT_INPUT="false" WORKING_DIR="file://$CMakeCurrentBuildDir$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="smn" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="smn">
+    <configuration name="smn" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-g -o output.cpp ../test.smn" REDIRECT_INPUT="false" WORKING_DIR="file://$CMakeCurrentBuildDir$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="smn" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="smn">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -556,10 +559,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Depricate ifile, ofile, and iofile in C" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="556" y="336" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605095306662">
+    <state x="556" y="336" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605097839998">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state x="556" y="336" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605095306662" />
+    <state x="556" y="336" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605097839998" />
     <state x="728" y="441" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604190752292" />
     <state x="728" y="441" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605055619947" />
     <state x="765" y="406" width="590" height="308" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604395551826">

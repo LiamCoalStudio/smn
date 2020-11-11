@@ -106,6 +106,7 @@ str CPP_Generator::generate_class_start(const str &name, str *bases, long count)
                 out += ", ";
         }
     }
+    out += " {";
     class_info._class = true;
     _indent++;
     return out;
