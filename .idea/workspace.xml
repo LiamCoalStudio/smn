@@ -494,7 +494,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605096456729</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Update version">
+      <created>1605096748401</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1605096748401</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Depricate ifile, ofile, and iofile in C">
+      <created>1605096967921</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1605096967921</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,8 +528,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added and removed a bunch of comments." />
-    <MESSAGE value="Fix test file" />
     <MESSAGE value="Add functions" />
     <MESSAGE value="Simplify developing Elements" />
     <MESSAGE value="Add some elements and mess with the parser and simon.h" />
@@ -539,7 +551,9 @@
     <MESSAGE value="Repair mess" />
     <MESSAGE value="Add tests" />
     <MESSAGE value="Less printing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Less printing." />
+    <MESSAGE value="Update version" />
+    <MESSAGE value="Depricate ifile, ofile, and iofile in C" />
+    <option name="LAST_COMMIT_MESSAGE" value="Depricate ifile, ofile, and iofile in C" />
   </component>
   <component name="WindowStateProjectService">
     <state x="556" y="336" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605095306662">
