@@ -2,7 +2,7 @@
 *a programming language named after cat*
 
 ## What is a Simon?
-Simon is a simple programming language written in C++. It doesnt have much yet, but will eventually have many more features.
+Simon is a simple programming language written in C++. It generates code for other programming languages using a different syntax.
 
 ## Building your own Simon
 1. `cmake .`
