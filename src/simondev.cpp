@@ -1,6 +1,11 @@
 #include <iostream>
 #include "simondev.h"
 
+namespace smn_info
+{
+    const str simon_version = "0.1.1";
+}
+
 #ifdef MODULE_simon
 void* _stack;
 int _stack_pointer;

@@ -3,3 +3,4 @@ smn-backup
 
 # Build directories
 cmake-build-testing
+cmake-build-release/

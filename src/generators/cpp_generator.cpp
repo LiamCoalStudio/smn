@@ -1,5 +1,6 @@
 #include "generator.h"
 #include <cstdarg>
+#include <unistd.h>
 
 struct {
     bool _class;
@@ -31,7 +32,7 @@ str CPP_Generator::generate_function_call(const str &name, str *args, long arg_c
 }
 str CPP_Generator::generate_function_start(const str& type, const str &name, str *args, long arg_count)
 {
-    str out = indent();
+    str out = "\n" + indent();
     if(class_info._unimpl)
         out += "virtual ";
     out += type + ' ';
@@ -192,3 +193,9 @@ str CPP_Generator::generate_function_return(const str &value)
 {
     return indent() + "return " + value;
 }
+
+void CPP_Generator::compile(str input_file, str output_file)
+{ system(("g++ -x c++ -o " + output_file + " " + input_file + " -lsimondev").c_str()); }
+
+str CPP_Generator::name()
+{ return "cpp"; }

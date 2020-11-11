@@ -3,6 +3,7 @@
 
 #include <string>
 #include <cstdlib>
+#include <iostream>
 
 //#ifdef TESTING
 //#define MODULE_simon
@@ -10,7 +11,8 @@
 //#define MODULE_simon$math
 //#endif
 
-#define malloc(p, s) p = static_cast<typeof(p)>(malloc(s))
+#define allocate(p, s) p = static_cast<typeof(p)>(malloc(s))
+#define declare(type, name) type name()
 
 typedef std::string str;
 typedef std::ifstream ifile;
@@ -47,5 +49,10 @@ void print(const T& text)
 #define pi M_PI
 #define e M_E
 #endif
+
+namespace smn_info
+{
+    extern const str simon_version;
+}
 
 #endif //SMN_SIMONDEV_H

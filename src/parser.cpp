@@ -69,17 +69,14 @@ void parse_line(str s)
     {
         global.language = Language::CPP;
     }
-
     if(s.substr(0, 6) == "/cpp/ ")
     {
         *global.output << generator->transform(CPP, s.substr(6, s.size() - 8)) << std::endl;
     }
-
     if(s.substr(0, 4) == "/c/ ")
     {
         *global.output << generator->transform(C, s.substr(4, s.size() - 8)) << std::endl;
     }
-
     if(s.substr(0, 6) == "/asm/ ")
     {
         *global.output << generator->transform(ASSEMBLY, s.substr(6, s.size() - 8)) << std::endl;
@@ -200,11 +197,29 @@ void parse_line(str s)
         *global.output << generator->generate_variable_define(type, name_, value);
         *global.output << generator->generate_line_end();
     }
+    else if(name == "newptr")
+    {
+        str type = args.front(); args.pop_front();
+        str name_ = args.front(); args.pop_front();
+
+        // <type> <name> = <value>
+        *global.output << generator->generate_variable_define("static " + type + '*',
+                                                              name_,
+                                                              "(" + type + "*)malloc(sizeof(" + type + "))");
+        *global.output << generator->generate_line_end();
+    }
     else if(name == "setvar")
     {
         str name_ = args.front(); args.pop_front();
         str value = args.front(); args.pop_front();
         *global.output << generator->generate_variable_set(name_, value);
+        *global.output << generator->generate_line_end();
+    }
+    else if(name == "setptr")
+    {
+        str name_ = args.front(); args.pop_front();
+        str value = args.front(); args.pop_front();
+        *global.output << generator->generate_variable_set('*' + name_, value);
         *global.output << generator->generate_line_end();
     }
     else if(name == "uses")

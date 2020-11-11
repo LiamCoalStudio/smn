@@ -31,6 +31,8 @@ public:
     virtual str generate_enum_entry(const str& entry) = 0;
     virtual str generate_enum_end() = 0;
     virtual str transform(Language other, const str& string) = 0;
+    virtual void compile(str input_file, str output_file) = 0;
+    virtual str name() = 0;
 };
 class CPP_Generator : public Generator
 {
@@ -59,6 +61,8 @@ public:
     str generate_function_return(const str &value) override;
     str generate_enum_end() override;
     str transform(Language other, const str &string) override;
+    void compile(str input_file, str output_file) override;
+    str name() override;
 };
 
 inline Generator* for_language(Language l)
