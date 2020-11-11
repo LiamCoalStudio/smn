@@ -16,7 +16,7 @@ str CPP_Generator::generate_function_call(const str &name, str *args, long arg_c
 }
 str CPP_Generator::generate_function_start(const str& type, const str &name, str *args, long arg_count)
 {
-    str out = "\n" + indent();
+    str out = (class_info._unimpl ? "" : "\n") + indent();
     if(class_info._class)
         out += "virtual ";
     out += type + ' ';
@@ -24,8 +24,10 @@ str CPP_Generator::generate_function_start(const str& type, const str &name, str
     if(class_info._unimpl)
         out += " = 0;\n";
     else
+    {
         out += " {\n";
-    _indent++;
+        _indent++;
+    }
     return out;
 }
 str CPP_Generator::generate_function_end()
@@ -113,7 +115,7 @@ str CPP_Generator::generate_class_start(const str &name, str *bases, long count)
 }
 str CPP_Generator::generate_class_end()
 {
-    class_info = {true,
+    class_info = {false,
                   false};
     _indent--;
     return indent() + "};\n";

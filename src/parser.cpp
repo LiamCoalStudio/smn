@@ -224,7 +224,7 @@ void parse_line(str s)
         str type = args.front(); args.pop_front();
         str name_ = args.front(); args.pop_front();
         str value;
-        if(!args.empty()) value = args.front(); args.pop_front();
+        if(!args.empty()) value = args.front();
         *global.output << generator->generate_variable_define(type, name_, value);
         *global.output << generator->generate_line_end();
     }
