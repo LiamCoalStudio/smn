@@ -32,16 +32,29 @@ install(TARGETS smn DESTINATION /usr/bin)
 
 enable_testing()
 
-set(ALL_TESTS_GEN test_framework test_stack)
+set(ALL_TESTS_CPP test_framework test_stack)
+set(ALL_TESTS_C test_c_framework test_c_stack)
 
-foreach(a ${ALL_TESTS_GEN})
+foreach(a ${ALL_TESTS_CPP})
     add_custom_command(OUTPUT tests/${a}.cpp COMMAND smn -g -o tests/${a}.cpp tests/${a}.cpp.smn COMMAND mkdir -p ${CMAKE_BINARY_DIR}/tests COMMAND cp tests/${a}.cpp ${CMAKE_BINARY_DIR}/tests WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endforeach()
 
-link_libraries(simondev)
+foreach(a ${ALL_TESTS_C})
+    add_custom_command(OUTPUT tests/${a}.c COMMAND smn -g -o tests/${a}.c tests/${a}.c.smn COMMAND mkdir -p ${CMAKE_BINARY_DIR}/tests COMMAND cp tests/${a}.c ${CMAKE_BINARY_DIR}/tests WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endforeach()
 
 add_executable(test_framework tests/test_framework.cpp)
+target_link_libraries(test_framework simondevcxx)
 add_test(framework test_framework)
 
 add_executable(test_stack tests/test_stack.cpp)
+target_link_libraries(test_stack simondevcxx)
 add_test(stack test_stack)
+
+add_executable(test_c_framework tests/test_c_framework.c)
+target_link_libraries(test_c_framework simondevc)
+add_test(c_framework test_c_framework)
+
+add_executable(test_c_stack tests/test_c_stack.c)
+target_link_libraries(test_c_stack simondevc)
+add_test(c_stack test_c_stack)

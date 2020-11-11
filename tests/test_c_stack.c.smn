@@ -1,0 +1,28 @@
+/*
+ *      Author: Liam Cole
+ *       Tests: simon::stack
+ */
+
+/language: c/#
+/test/#
+
+uses simon;
+uses simon.io;
+end uses;
+
+/c/ #include <string.h> /#
+
+main;
+    start_stack;
+
+    push 'a';
+    newvar char, a, pop();
+    assert a == 'a', "Push and Pop a single byte.";
+
+    pushp "bbbbb", 5;
+    newvar char*, b2, (char*)popp(5);
+    /c/ int diff = strcmp("bbbbb", b2); /#
+    assert diff == 0, "Push and Pop 5 bytes.";
+
+    end_stack;
+end func;
