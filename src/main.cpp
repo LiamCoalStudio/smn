@@ -2,13 +2,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <filesystem>
 #include <optionparser.h>
 #include <vector>
 #include <src/generators/generator.h>
 
 using namespace std;
-using namespace filesystem;
 
 global_t global;
 
@@ -105,8 +103,9 @@ int main(int argc, char** argv)
     }
     else
     {
-        copy(path(str("/tmp/") + output_name),
-             path(output_name));
+        std::ofstream dest(output_name, std::ios::binary);
+        output->seekg(0);
+        dest << output->rdbuf();
     }
 
     return input->eof() ? 0 : 1;

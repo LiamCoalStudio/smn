@@ -28,28 +28,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/output.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.idea/enu.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smn-backup/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generators/cpp_generator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/generators/cpp_generator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generators/generator.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generators/generator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/generators/generator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simondev.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simondev.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simondev.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simondev.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.smn" beforeDir="false" afterPath="$PROJECT_DIR$/test.smn" afterDir="false" />
-    </list>
+    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +140,7 @@
       <workItem from="1604381464019" duration="5319000" />
       <workItem from="1604984171065" duration="76000" />
       <workItem from="1604984247302" duration="16377000" />
-      <workItem from="1605053288630" duration="3754000" />
+      <workItem from="1605053288630" duration="4406000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1604189420912</created>
