@@ -1,6 +1,5 @@
-# Just in case I mess something up
-smn-backup
-
 # Build directories
 cmake-build-testing
 cmake-build-release/
+
+venv/
