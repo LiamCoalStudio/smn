@@ -32,16 +32,22 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
-    - name: Build
+    - name: Build SMN
       working-directory: ${{runner.workspace}}/build
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake --build . --config $BUILD_TYPE -- -j1 -B
+      run: cmake --build . --config $BUILD_TYPE -- -j1 smn
       
     - name: Install
       working-directory: ${{runner.workspace}}/build
       shell: bash
       run: sudo cmake --install .
+
+    - name: Build All
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      # Execute the build.  You can specify a specific target with "--target <NAME>"
+      run: cmake --build . --config $BUILD_TYPE -- -j1
       
     - name: Test
       working-directory: ${{runner.workspace}}/build

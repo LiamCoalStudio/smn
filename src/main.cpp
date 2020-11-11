@@ -64,12 +64,7 @@ int main(int argc, char** argv)
         return 0;
     }
 
-    const char* output_name = "output.ll";
-
-    if(options[OUTPUT])
-    {
-        output_name = options[OUTPUT].arg;
-    }
+    const char* output_name = options[OUTPUT].arg;
 
     istream* input = new ifstream(parse.nonOption(0), ifstream::in);
     auto* output = new fstream("/tmp/smn0.tmp", fstream::out | fstream::trunc | fstream::in);

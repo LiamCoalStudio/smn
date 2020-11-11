@@ -1,5 +1,5 @@
 #include <iostream>
-#include "simondev.h"
+#include "simondevcxx.h"
 
 namespace smn_info
 {

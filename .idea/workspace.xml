@@ -16,11 +16,14 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="smn" targetName="simondev" />
+      <config projectName="smn" targetName="test_c_stack" />
       <config projectName="smn" targetName="smn" />
       <config projectName="smn" targetName="test_framework" />
       <config projectName="smn" targetName="test_stack" />
+      <config projectName="smn" targetName="simondevc" />
+      <config projectName="smn" targetName="test_c_framework" />
       <config projectName="smn" targetName="smnl" />
+      <config projectName="smn" targetName="simondevcxx" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -31,11 +34,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/test_stack.cpp.smn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_c_framework.c.smn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_c_stack.c.smn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simondev.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simondev.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_basics.cpp.smn" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_framework.cpp.smn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generators/c_generator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/generators/c_generator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simondev/c/simondevc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/simondev/c/simondevc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simondev/c/simondevc.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simondev/c/simondevc.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +57,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="tests" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,6 +65,9 @@
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="a6s9ir5y" />
+  </component>
+  <component name="OCResolveContextSettings">
+    <option name="configuration" value="0-Debug-smnl" />
   </component>
   <component name="ProjectId" id="1jcVGvGGFjaf3CZwjPrKXZBJ0By" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -76,7 +87,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last.edited.regexp" value="test" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/simondev/c" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -88,12 +99,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/simondev/c" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/simondev/cxx" />
       <recent name="$PROJECT_DIR$/src/generators" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/module/std/elements/io" />
       <recent name="$PROJECT_DIR$/src/elements" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.smn">
@@ -102,12 +116,17 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="simondev" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="simondev" CONFIG_NAME="Testing">
+    <configuration name="simondevc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="simondevc" CONFIG_NAME="Testing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="smn" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-o output.cpp ../test.smn" REDIRECT_INPUT="false" WORKING_DIR="file://$CMakeCurrentBuildDir$" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="smn" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration name="simondevcxx" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="simondevcxx" CONFIG_NAME="Testing">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="smn" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-g -o output.c ../tests/test_c_stack.c.smn" REDIRECT_INPUT="false" WORKING_DIR="file://$CMakeCurrentBuildDir$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="smn" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="smn">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -118,6 +137,16 @@
       </method>
     </configuration>
     <configuration name="smnl" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="smnl" CONFIG_NAME="Testing">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_c_framework" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="test_c_framework" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="test_c_framework">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_c_stack" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="test_c_stack" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="test_c_stack">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -154,9 +183,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="CMake Application.simondev" />
+      <item itemvalue="CMake Application.simondevc" />
+      <item itemvalue="CMake Application.simondevcxx" />
       <item itemvalue="CMake Application.smn" />
       <item itemvalue="CMake Application.smnl" />
+      <item itemvalue="CMake Application.test_c_framework" />
+      <item itemvalue="CMake Application.test_c_stack" />
       <item itemvalue="CMake Application.test_framework" />
       <item itemvalue="CMake Application.test_stack" />
       <item itemvalue="Python docs.docutils task in reference.rst" />
@@ -431,7 +463,28 @@
       <option name="project" value="LOCAL" />
       <updated>1605071027220</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Update Version to 0.1.2">
+      <created>1605090154972</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1605090154972</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Commonize generator.cpp">
+      <created>1605093957626</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1605093957626</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Add C generator">
+      <created>1605093969998</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1605093969998</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +504,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Initial Commit" />
     <MESSAGE value="Remove binaries and stuff" />
     <MESSAGE value="add readme" />
     <MESSAGE value="Fix test.smn and allow space at start of strings&#10;+ colors are now #defines" />
@@ -474,13 +526,16 @@
     <MESSAGE value="Put better test file in repo" />
     <MESSAGE value="dont use new filesystem features&#10;github actions doesnt like that" />
     <MESSAGE value="Fix tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix tests" />
+    <MESSAGE value="Update Version to 0.1.2" />
+    <MESSAGE value="Commonize generator.cpp" />
+    <MESSAGE value="Add C generator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add C generator" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="728" y="441" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605055619947">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state x="556" y="336" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605095306662">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state x="556" y="336" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605006278282" />
+    <state x="556" y="336" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605095306662" />
     <state x="728" y="441" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604190752292" />
     <state x="728" y="441" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605055619947" />
     <state x="765" y="406" width="590" height="308" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604395551826">
@@ -492,11 +547,11 @@
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
     <state x="1053" y="491" width="424" height="591" key="#com.intellij.ide.macro.MacrosDialog/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604985312326" />
-    <state x="734" y="252" width="411" height="620" key="#com.intellij.ide.util.MemberChooser" timestamp="1605060008835">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state x="561" y="195" width="411" height="676" key="#com.intellij.ide.util.MemberChooser" timestamp="1605091666486">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state x="561" y="195" width="411" height="515" key="#com.intellij.ide.util.MemberChooser/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604225317814" />
-    <state x="561" y="195" width="411" height="655" key="#com.intellij.ide.util.MemberChooser/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605000485379" />
+    <state x="561" y="195" width="411" height="676" key="#com.intellij.ide.util.MemberChooser/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605091666486" />
     <state x="734" y="253" width="411" height="662" key="#com.intellij.ide.util.MemberChooser/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604181422386" />
     <state x="734" y="252" width="411" height="620" key="#com.intellij.ide.util.MemberChooser/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605060008835" />
     <state x="1041" y="482" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605058591191">
@@ -534,32 +589,32 @@
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
     <state x="1123" y="436" width="374" height="652" key="Github.UntrackedFilesDialog/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604189379635" />
-    <state width="717" height="369" key="GridCell.Tab.0.bottom" timestamp="1605068408439">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1438" height="362" key="GridCell.Tab.0.bottom" timestamp="1605095393720">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="338" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605009684837" />
+    <state width="1438" height="362" key="GridCell.Tab.0.bottom/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605095393720" />
     <state width="1670" height="197" key="GridCell.Tab.0.bottom/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="717" height="369" key="GridCell.Tab.0.bottom/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605068408439" />
-    <state width="717" height="369" key="GridCell.Tab.0.center" timestamp="1605068408439">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1438" height="362" key="GridCell.Tab.0.center" timestamp="1605095393720">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.center/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="338" key="GridCell.Tab.0.center/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605009684837" />
+    <state width="1438" height="362" key="GridCell.Tab.0.center/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605095393720" />
     <state width="1670" height="197" key="GridCell.Tab.0.center/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="717" height="369" key="GridCell.Tab.0.center/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605068408439" />
-    <state width="717" height="369" key="GridCell.Tab.0.left" timestamp="1605068408439">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1438" height="362" key="GridCell.Tab.0.left" timestamp="1605095393719">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.left/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="338" key="GridCell.Tab.0.left/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605009684837" />
+    <state width="1438" height="362" key="GridCell.Tab.0.left/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605095393719" />
     <state width="1670" height="197" key="GridCell.Tab.0.left/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="717" height="369" key="GridCell.Tab.0.left/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605068408439" />
-    <state width="717" height="369" key="GridCell.Tab.0.right" timestamp="1605068408439">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state width="1438" height="362" key="GridCell.Tab.0.right" timestamp="1605095393720">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="1670" height="339" key="GridCell.Tab.0.right/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604226688622" />
-    <state width="1818" height="338" key="GridCell.Tab.0.right/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605009684837" />
+    <state width="1438" height="362" key="GridCell.Tab.0.right/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605095393720" />
     <state width="1670" height="197" key="GridCell.Tab.0.right/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="717" height="369" key="GridCell.Tab.0.right/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605068408439" />
     <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1604984245501">
@@ -579,10 +634,10 @@
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state x="981" y="237" width="387" height="640" key="RollbackChangesDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605087993844" />
-    <state x="774" y="343" width="910" height="737" key="SettingsEditor" timestamp="1605086759720">
+    <state x="774" y="343" width="910" height="737" key="SettingsEditor" timestamp="1605094040977">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state x="774" y="343" width="910" height="737" key="SettingsEditor/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605086759720" />
+    <state x="774" y="343" width="910" height="737" key="SettingsEditor/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605094040977" />
     <state x="598" y="495" width="1497" height="737" key="SettingsEditor/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604190659324" />
     <state x="797" y="367" width="1022" height="737" key="SettingsEditor/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605063730542" />
     <state x="1197" y="619" width="303" height="178" key="VCS.ChangelistChooser" timestamp="1604381367061">
@@ -635,6 +690,15 @@
     <state x="971" y="349" width="903" height="679" key="search.everywhere.popup/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605058507068" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/parser.cpp</url>
+          <line>93</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="data" language="ObjectiveC" />

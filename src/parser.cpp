@@ -76,6 +76,10 @@ void parse_line(str s)
     {
         global.language = Language::CPP;
     }
+    if(s == "/language: c/#")
+    {
+        global.language = Language::C;
+    }
     if(s == "/test/#")
     {
         global.is_test = true;
@@ -86,7 +90,7 @@ void parse_line(str s)
     }
     if(s.substr(0, 4) == "/c/ ")
     {
-        *global.output << generator->transform(C, s.substr(4, s.size() - 8)) << std::endl;
+        *global.output << generator->transform(C, s.substr(4, s.size() - 6)) << std::endl;
     }
     if(s.substr(0, 6) == "/asm/ ")
     {
@@ -106,7 +110,7 @@ void parse_line(str s)
 //    LanguageElement* element;
     char l = '\x00';
 
-    int i = 0;
+    int i = 0, paren_level = 0;
 
     if(s[0] == '#') return;
 
@@ -137,7 +141,7 @@ void parse_line(str s)
                 goto out_of_switch;
 
             case Arguments:
-                if(c == ',')
+                if(c == ',' && paren_level == 0)
                 {
                     args.emplace_back(buf);
                     buf = "";
@@ -150,6 +154,18 @@ void parse_line(str s)
                     //lines.pop_back();
                 }
                 else if(c == ' ' && !started);
+                else if(c == '(')
+                {
+                    paren_level++;
+                    buf += c;
+                    started = true;
+                }
+                else if(c == ')' && paren_level > 0)
+                {
+                    paren_level--;
+                    buf += c;
+                    started = true;
+                }
                 else
                 {
                     buf += c;
@@ -192,7 +208,7 @@ void parse_line(str s)
         if(type == "func")
             *global.output << generator->generate_function_end();
         else if(type == "uses")
-            *global.output << "#include <simondev.h>" << std::endl << std::endl;
+            *global.output << "#include <simondev" << generator->name() << ".h>" << std::endl << std::endl;
     }
     else if(name == "return")
     {

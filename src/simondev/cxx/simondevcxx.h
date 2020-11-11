@@ -1,4 +1,4 @@
-#ifndef SMN_SIMONDEV_H
+#ifndef SMN_SIMONDEVC_H
 #define SMN_SIMONDEV_H
 
 #include <string>
@@ -86,4 +86,4 @@ namespace smn_info
     extern const str simon_version;
 }
 
-#endif //SMN_SIMONDEV_H
+#endif //SMN_SIMONDEVC_H
