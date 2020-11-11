@@ -3,7 +3,7 @@
 
 namespace smn_info
 {
-    const str simon_version = "0.1.4";
+    const str simon_version = "0.2.0";
 }
 
 void* _stack;
