@@ -16,14 +16,14 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="smn" targetName="test_c_stack" />
-      <config projectName="smn" targetName="smn" />
       <config projectName="smn" targetName="test_framework" />
-      <config projectName="smn" targetName="test_stack" />
-      <config projectName="smn" targetName="simondevc" />
       <config projectName="smn" targetName="test_c_framework" />
       <config projectName="smn" targetName="smnl" />
       <config projectName="smn" targetName="simondevcxx" />
+      <config projectName="smn" targetName="smn" />
+      <config projectName="smn" targetName="test_stack" />
+      <config projectName="smn" targetName="test_c_stack" />
+      <config projectName="smn" targetName="simondevc" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -33,10 +33,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.smn" beforeDir="false" afterPath="$PROJECT_DIR$/test.smn" afterDir="false" />
-    </list>
+    <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tests" />
+        <entry key="$PROJECT_DIR$" value="classes" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,11 +100,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.smn">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="simondevc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="simondevc" CONFIG_NAME="Testing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -531,8 +523,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add functions" />
-    <MESSAGE value="Simplify developing Elements" />
     <MESSAGE value="Add some elements and mess with the parser and simon.h" />
     <MESSAGE value="better option parsing incoming" />
     <MESSAGE value="add gitignore" />
@@ -556,7 +546,9 @@
     <MESSAGE value="Less printing." />
     <MESSAGE value="Update version" />
     <MESSAGE value="Depricate ifile, ofile, and iofile in C" />
-    <option name="LAST_COMMIT_MESSAGE" value="Depricate ifile, ofile, and iofile in C" />
+    <MESSAGE value="Add visibility" />
+    <MESSAGE value="Class functions are always virtual" />
+    <option name="LAST_COMMIT_MESSAGE" value="Class functions are always virtual" />
   </component>
   <component name="WindowStateProjectService">
     <state x="556" y="336" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605097839998">
@@ -644,6 +636,10 @@
     <state width="1438" height="362" key="GridCell.Tab.0.right/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605095393720" />
     <state width="1670" height="197" key="GridCell.Tab.0.right/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193754132" />
     <state width="717" height="369" key="GridCell.Tab.0.right/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605068408439" />
+    <state x="891" y="479" width="824" height="515" key="IDE.errors.dialog" timestamp="1605123296707">
+      <screen x="56" y="27" width="2504" height="1413" />
+    </state>
+    <state x="891" y="479" width="824" height="515" key="IDE.errors.dialog/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605123296707" />
     <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1604984245501">
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
