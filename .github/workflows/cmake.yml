@@ -46,4 +46,4 @@ jobs:
     - name: Test
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: cmake --test . -- -j1 -B
+      run: cmake --build . -- test -j1 -B
