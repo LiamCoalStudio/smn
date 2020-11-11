@@ -5,3 +5,5 @@ cmake-build-release/
 venv/
 tests/*.cpp
 tests/*.c
+
+.idea/workspace.xml
