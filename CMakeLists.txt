@@ -24,11 +24,16 @@ install(TARGETS smn DESTINATION /usr/bin)
 
 enable_testing()
 
-set(ALL_TESTS_GEN test_basics)
+set(ALL_TESTS_GEN test_framework test_stack)
 
 foreach(a ${ALL_TESTS_GEN})
     add_custom_command(OUTPUT tests/${a}.cpp COMMAND smn -g -o tests/${a}.cpp tests/${a}.cpp.smn COMMAND mkdir -p ${CMAKE_BINARY_DIR}/tests COMMAND cp tests/${a}.cpp ${CMAKE_BINARY_DIR}/tests WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endforeach()
 
-add_executable(test_basics tests/test_basics.cpp)
-add_test(TestBasics test_basics)
+link_libraries(simondev)
+
+add_executable(test_framework tests/test_framework.cpp)
+add_test(framework test_framework)
+
+add_executable(test_stack tests/test_stack.cpp)
+add_test(stack test_stack)

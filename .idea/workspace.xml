@@ -17,8 +17,9 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="smn" targetName="simondev" />
-      <config projectName="smn" targetName="test_basics" />
       <config projectName="smn" targetName="smn" />
+      <config projectName="smn" targetName="test_framework" />
+      <config projectName="smn" targetName="test_stack" />
       <config projectName="smn" targetName="smnl" />
     </generated>
   </component>
@@ -30,9 +31,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/test_stack.cpp.smn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_basics.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simondev.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simondev.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_basics.cpp.smn" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_framework.cpp.smn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Testing" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -65,6 +69,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -80,7 +85,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -117,7 +122,12 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test_basics" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="test_basics" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="test_basics">
+    <configuration name="test_framework" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="test_framework" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="test_framework">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_stack" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="smn" TARGET_NAME="test_stack" CONFIG_NAME="Testing" RUN_TARGET_PROJECT_NAME="smn" RUN_TARGET_NAME="test_stack">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -147,7 +157,8 @@
       <item itemvalue="CMake Application.simondev" />
       <item itemvalue="CMake Application.smn" />
       <item itemvalue="CMake Application.smnl" />
-      <item itemvalue="CMake Application.test_basics" />
+      <item itemvalue="CMake Application.test_framework" />
+      <item itemvalue="CMake Application.test_stack" />
       <item itemvalue="Python docs.docutils task in reference.rst" />
     </list>
     <recent_temporary>
@@ -564,10 +575,14 @@
     </state>
     <state x="693" y="316" width="728" height="482" key="MultipleFileMergeDialog/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604215798918" />
     <state x="912" y="415" key="MultipleFileMergeDialog/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604381657404" />
-    <state x="797" y="367" width="910" height="737" key="SettingsEditor" timestamp="1605063730542">
-      <screen x="56" y="27" width="2504" height="1413" />
+    <state x="981" y="237" width="387" height="640" key="RollbackChangesDialog" timestamp="1605087993844">
+      <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state x="774" y="343" width="910" height="737" key="SettingsEditor/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605008063291" />
+    <state x="981" y="237" width="387" height="640" key="RollbackChangesDialog/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605087993844" />
+    <state x="774" y="343" width="910" height="737" key="SettingsEditor" timestamp="1605086759720">
+      <screen x="56" y="27" width="1864" height="1053" />
+    </state>
+    <state x="774" y="343" width="910" height="737" key="SettingsEditor/56.27.1864.1053/2560.215.1920.1080@56.27.1864.1053" timestamp="1605086759720" />
     <state x="598" y="495" width="1497" height="737" key="SettingsEditor/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604190659324" />
     <state x="797" y="367" width="1022" height="737" key="SettingsEditor/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605063730542" />
     <state x="1197" y="619" width="303" height="178" key="VCS.ChangelistChooser" timestamp="1604381367061">
