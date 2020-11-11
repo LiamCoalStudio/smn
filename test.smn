@@ -29,6 +29,7 @@
 # Include IO and simon.
 uses simon;
 uses simon.io;
+uses simon.io.fs;
 
 # Includes simondev
 end uses;
@@ -58,6 +59,17 @@ main;
 
     /* Some info about SMN is available at runtime */
     println smn_info::simon_version;
+
+    /* Open an output file */
+    newvar ofile, out, open_out("test.txt");
+    write out, "test!";
+    out.close;
+
+    /* Open an input file */
+    newvar ifile, in, open_in("test.txt");
+    newvar str, test, read<str>(in);
+    println test;
+    in.close;
 
     /* Return a value of 0 */
     return 0;
