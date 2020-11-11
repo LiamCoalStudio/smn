@@ -35,8 +35,17 @@ extern void *popp(long s);
 #define MODULE_simon$io
 
 typedef FILE* file;
+
+/// @deprecated
+///     Use @c file instead
 typedef file ifile;
+
+/// @deprecated
+///     Use @c file instead
 typedef file ofile;
+
+/// @deprecated
+///     Use @c file instead
 typedef file iofile;
 
 #define MODE_READ "r"
