@@ -284,6 +284,16 @@ void parse_line(str s)
     {
         *global.output << generator->generate_struct_start(args.front()); args.pop_front();
     }
+    else if(name == "enum")
+    {
+        *global.output << generator->generate_enum_start(args.front()); args.pop_front();
+        while(!args.empty())
+        {
+            *global.output << generator->generate_enum_entry(args.front());
+            args.pop_front();
+        }
+        *global.output << generator->generate_enum_end();
+    }
     else if(name == "visibility")
     {
         *global.output << generator->generate_class_visibility(args.front()); args.pop_front();
