@@ -87,3 +87,7 @@ class Test;
         println "Test";
     end func;
 end class;
+
+interface Cat;
+    func void, meow;
+end interface;
