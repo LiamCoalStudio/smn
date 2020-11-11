@@ -95,3 +95,5 @@ end interface;
 struct Simon;
     newvar int, attacks;
 end struct;
+
+enum Jimmy, CAT, MEOW;
