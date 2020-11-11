@@ -30,14 +30,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd9fc358-e015-4418-832f-de25541992df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/test_basics.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference.html" beforeDir="false" afterPath="$PROJECT_DIR$/reference.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference.rst" beforeDir="false" afterPath="$PROJECT_DIR$/reference.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simondev.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simondev.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_basics.smn" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_basics.cpp.smn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_basics.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +91,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python docs.docutils task in reference.rst">
+  <component name="RunManager" selected="CMake Application.smn">
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -418,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605058214177</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fix tests">
+      <created>1605071027220</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1605071027220</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +462,8 @@
     <MESSAGE value="Update Version" />
     <MESSAGE value="Put better test file in repo" />
     <MESSAGE value="dont use new filesystem features&#10;github actions doesnt like that" />
-    <option name="LAST_COMMIT_MESSAGE" value="dont use new filesystem features&#10;github actions doesnt like that" />
+    <MESSAGE value="Fix tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="728" y="441" width="1084" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605055619947">
@@ -572,12 +575,12 @@
     </state>
     <state x="905" y="468" width="303" height="178" key="VCS.ChangelistChooser/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604215734596" />
     <state x="1197" y="619" key="VCS.ChangelistChooser/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1604381367061" />
-    <state x="910" y="494" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605063406277">
+    <state x="910" y="494" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605071055911">
       <screen x="56" y="27" width="2504" height="1413" />
     </state>
     <state x="692" y="375" width="800" height="535" key="Vcs.Push.Dialog.v2/56.27.1864.1053/2560.213.1920.1080@56.27.1864.1053" timestamp="1604215949777" />
     <state x="910" y="494" width="800" height="535" key="Vcs.Push.Dialog.v2/56.27.2504.1413/2560.213.1920.1080@56.27.2504.1413" timestamp="1604193790552" />
-    <state x="910" y="494" width="800" height="535" key="Vcs.Push.Dialog.v2/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605063406277" />
+    <state x="910" y="494" width="800" height="535" key="Vcs.Push.Dialog.v2/56.27.2504.1413/2560.215.1920.1080@56.27.2504.1413" timestamp="1605071055911" />
     <state width="858" height="526" key="XDebugger.FullValuePopup" timestamp="1604999041635">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>

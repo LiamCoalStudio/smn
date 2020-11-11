@@ -30,5 +30,5 @@ foreach(a ${ALL_TESTS_GEN})
     add_custom_command(OUTPUT tests/${a}.cpp COMMAND smn -g -o tests/${a}.cpp tests/${a}.cpp.smn COMMAND mkdir -p ${CMAKE_BINARY_DIR}/tests COMMAND cp tests/${a}.cpp ${CMAKE_BINARY_DIR}/tests WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endforeach()
 
-add_executable(test_basics tests/test_basics.cpp tests/test_basics.cpp.smn)
+add_executable(test_basics tests/test_basics.cpp)
 add_test(TestBasics test_basics)
