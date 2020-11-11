@@ -1,5 +1,6 @@
 # Simon
 ![CMake](https://github.com/LiamCoal/smn/workflows/CMake/badge.svg)
+
 *a programming language named after cat*
 
 ## What is a Simon?
