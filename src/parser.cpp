@@ -213,6 +213,8 @@ void parse_line(str s)
             *global.output << generator->generate_class_end();
         else if(type == "interface")
             *global.output << generator->generate_interface_end();
+        else if(type == "struct")
+            *global.output << generator->generate_struct_end();
     }
     else if(name == "return")
     {
@@ -224,7 +226,7 @@ void parse_line(str s)
         str type = args.front(); args.pop_front();
         str name_ = args.front(); args.pop_front();
         str value;
-        if(!args.empty()) value = args.front(); args.pop_front();
+        if(!args.empty()) value = args.front();
         *global.output << generator->generate_variable_define(type, name_, value);
         *global.output << generator->generate_line_end();
     }
@@ -277,6 +279,10 @@ void parse_line(str s)
     else if(name == "interface")
     {
         *global.output << generator->generate_interface_start(args.front()); args.pop_front();
+    }
+    else if(name == "struct")
+    {
+        *global.output << generator->generate_struct_start(args.front()); args.pop_front();
     }
     else if(name == "visibility")
     {

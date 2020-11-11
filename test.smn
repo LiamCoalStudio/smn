@@ -91,3 +91,7 @@ end class;
 interface Cat;
     func void, meow;
 end interface;
+
+struct Simon;
+    newvar int, attacks;
+end struct;
