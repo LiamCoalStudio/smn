@@ -110,7 +110,8 @@ void parse_line(str s)
 //    LanguageElement* element;
     char l = '\x00';
 
-    int i = 0, paren_level = 0;
+    int i = 0;
+    bool interpret_next = true;
 
     if(s[0] == '#') return;
 
@@ -141,7 +142,13 @@ void parse_line(str s)
                 goto out_of_switch;
 
             case Arguments:
-                if(c == ',' && paren_level == 0)
+                if(!interpret_next)
+                {
+                    buf += c;
+                    started = true;
+                    interpret_next = true;
+                }
+                else if(c == ',')
                 {
                     args.emplace_back(buf);
                     buf = "";
@@ -154,18 +161,16 @@ void parse_line(str s)
                     //lines.pop_back();
                 }
                 else if(c == ' ' && !started);
-                else if(c == '(')
+                else if(c == '\\')
                 {
-                    paren_level++;
-                    buf += c;
-                    started = true;
+                    interpret_next = false;
                 }
-                else if(c == ')' && paren_level > 0)
-                {
-                    paren_level--;
-                    buf += c;
-                    started = true;
-                }
+//                else if(c == ')' && paren_level > 0)
+//                {
+//                    paren_level--;
+//                    buf += c;
+//                    started = true;
+//                }
                 else
                 {
                     buf += c;
