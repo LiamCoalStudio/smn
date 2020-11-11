@@ -46,6 +46,7 @@ struct global_t
     var_context_t variable_context;
     Language language;
     std::iostream* output;
+    bool is_test;
 };
 
 extern global_t global;

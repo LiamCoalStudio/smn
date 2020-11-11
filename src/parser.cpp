@@ -76,6 +76,10 @@ void parse_line(str s)
     {
         global.language = Language::CPP;
     }
+    if(s == "/test/#")
+    {
+        global.is_test = true;
+    }
     if(s.substr(0, 6) == "/cpp/ ")
     {
         *global.output << generator->transform(CPP, s.substr(6, s.size() - 8)) << std::endl;
@@ -234,6 +238,12 @@ void parse_line(str s)
         str module = args.front(); args.pop_front();
         str replaced = replace_all(module, '.', '$');
         *global.output << "#define MODULE_" << replaced << std::endl;
+    }
+    else if(name == "assert" && global.is_test)
+    {
+        str condition = args.front(); args.pop_front();
+        str name_ = args.front(); args.pop_front();
+        *global.output << generator->generate_assert_test(condition, name_);
     }
     else
     {

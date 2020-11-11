@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
+
 project(smn)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -20,3 +21,7 @@ add_executable(smn src/main.cpp)
 install(FILES ${CMAKE_SOURCE_DIR}/src/simondev.h DESTINATION /usr/include)
 install(TARGETS simondev smnl DESTINATION /usr/lib)
 install(TARGETS smn DESTINATION /usr/bin)
+
+enable_testing()
+add_executable(test_basics tests/test_basics.smn)
+add_test(TestBasics test_basics)

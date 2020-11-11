@@ -195,7 +195,22 @@ str CPP_Generator::generate_function_return(const str &value)
 }
 
 void CPP_Generator::compile(str input_file, str output_file)
-{ system(("g++ -x c++ -o " + output_file + " " + input_file + " -lsimondev").c_str()); }
+{
+    if(system(("g++ -x c++ -o " + output_file + " " + input_file + " -lsimondev").c_str()) > 0)
+        exit(1);
+}
 
 str CPP_Generator::name()
 { return "cpp"; }
+
+str CPP_Generator::generate_assert_test(str c, str name)
+{
+    str out;
+    out += generate_if(c);
+    out += generate_function_call("println", new str[1] {"\"Test failed: \"" + name}, 1);
+    out += generate_line_end();
+    out += generate_function_return("1");
+    out += generate_line_end();
+    out += generate_if_end();
+    return out;
+}
