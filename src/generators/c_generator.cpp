@@ -161,3 +161,13 @@ str C_Generator::generate_assert_test(str c, str name)
     out += generate_if_end();
     return out;
 }
+
+str C_Generator::generate_comment(str text, bool indent_)
+{
+    return (indent_ ? indent() : "") + "// " + text + "\n";
+}
+
+str C_Generator::comment_str()
+{
+    return "// ";
+}

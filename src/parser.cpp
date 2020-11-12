@@ -1,6 +1,7 @@
 #include "simon.h"
 #include <iostream>
 #include <generator.h>
+#include <cstring>
 
 bool comment_mode;
 
@@ -22,6 +23,8 @@ bool hasEnding(std::string const &fullString, std::string const &ending)
  */
 void parse(std::istream *input)
 {
+    auto generator = for_language(global.language);
+
     current_function = "";
 
     str obj;
@@ -31,11 +34,23 @@ void parse(std::istream *input)
     // Comments
     if(obj == "/*" && !comment_mode) comment_mode = true;
     if(obj == "*/" && comment_mode) comment_mode = false;
-    if(obj == "/*" || obj == "*/" || (comment_mode && obj != "*/")) return;
+    if(obj == "/*" || obj == "*/" || (comment_mode && obj != "*/"))
+    {
+        if(obj == "/*")
+            *global.output << generator->comment_str();
+        else if(obj == "*/")
+            *global.output << "\n";
+        else if(obj != "/*" && obj != "*/")
+            *global.output << obj << " ";
+        return;
+    }
     if(obj[0] == '#')
     {
         char c = 0;
-        while(c != '\n') input->read(&c, 1);
+        while(c != '\n')
+        {
+            input->read(&c, 1);
+        }
         return;
     }
 
@@ -71,6 +86,7 @@ void parse_line(str s)
 #endif
 
     auto generator = for_language(global.language);
+    *global.output << generator->generate_comment("=> " + s, true);
 
     if(s == "/language: cpp/#")
     {

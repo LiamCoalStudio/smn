@@ -203,3 +203,13 @@ str CPP_Generator::generate_assert_test(str c, str name)
     return out;
 }
 
+str CPP_Generator::generate_comment(str text, bool indent_)
+{
+    return (indent_ ? indent() : "") + "// " + text + "\n";
+}
+
+str CPP_Generator::comment_str()
+{
+    return "// ";
+}
+
