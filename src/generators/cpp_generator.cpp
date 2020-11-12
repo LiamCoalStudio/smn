@@ -134,7 +134,7 @@ str CPP_Generator::generate_interface_end()
     class_info = {false,
                   false};
     _indent--;
-    return indent() + "};";
+    return indent() + "};\n";
 }
 
 str CPP_Generator::generate_struct_start(const str &name)
