@@ -171,3 +171,8 @@ str C_Generator::comment_str()
 {
     return "// ";
 }
+
+str C_Generator::generate_include(str file)
+{
+    return "#include \"" + file + "\"\n";
+}

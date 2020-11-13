@@ -319,6 +319,10 @@ void parse_line(str s)
     {
         *global.output << generator->generate_class_visibility(args.front()); args.pop_front();
     }
+    else if(name == "include")
+    {
+        *global.output << generator->generate_include(args.front());
+    }
     else if(name == "assert" && global.is_test)
     {
         str condition = args.front(); args.pop_front();

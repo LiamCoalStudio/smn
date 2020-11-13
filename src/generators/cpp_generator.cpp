@@ -213,3 +213,8 @@ str CPP_Generator::comment_str()
     return "// ";
 }
 
+str CPP_Generator::generate_include(str file)
+{
+    return "#include \"" + file + "\"\n";
+}
+
