@@ -9,6 +9,7 @@ void parse_line(str str);
 str replace_all(str& basicString, char i, char i1);
 
 str current_function;
+extern std::list<std::string> libraries;
 
 bool hasEnding(std::string const &fullString, std::string const &ending)
 {
@@ -321,7 +322,12 @@ void parse_line(str s)
     }
     else if(name == "include")
     {
-        *global.output << generator->generate_include(args.front());
+        *global.output << generator->generate_include(args.front(), false);
+    }
+    else if(name == "library")
+    {
+        libraries.emplace_back(args.front());
+        *global.output << generator->generate_include(args.front(), true);
     }
     else if(name == "assert" && global.is_test)
     {

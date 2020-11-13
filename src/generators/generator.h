@@ -43,7 +43,7 @@ public:
     virtual str generate_enum_entry(const str& entry) = 0;
     virtual str generate_enum_end() = 0;
     virtual str generate_comment(str text, bool indent) = 0;
-    virtual str generate_include(str file) = 0;
+    virtual str generate_include(str file, bool library) = 0;
     virtual str comment_str() = 0;
     virtual str transform(Language other, const str& string) = 0;
     virtual void compile(str input_file, str output_file) = 0;
@@ -77,7 +77,7 @@ public:
     str generate_enum_start(const str &name) override;
     str generate_function_return(const str &value) override;
     str generate_enum_end() override;
-    str generate_include(str file) override;
+    str generate_include(str file, bool library) override;
     str generate_comment(str text, bool indent) override;
     str transform(Language other, const str &string) override;
     str name() override;
@@ -113,7 +113,7 @@ public:
     str generate_enum_entry(const str &entry) override;
     str generate_enum_end() override;
     str generate_comment(str text, bool indent) override;
-    str generate_include(str file) override;
+    str generate_include(str file, bool library) override;
     str transform(Language other, const str &string) override;
     str name() override;
     str generate_assert_test(str condition, str name) override;

@@ -42,6 +42,8 @@ const option::Descriptor usage[] =
         {0, 0, 0, 0, 0, 0}
 };
 
+list<std::string> libraries;
+
 /**
  * @param argc Argument count.
  * @param argv Array of command line arguments.

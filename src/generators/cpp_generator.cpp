@@ -182,9 +182,14 @@ str CPP_Generator::generate_function_return(const str &value)
     return indent() + "return " + value;
 }
 
+extern std::list<str> libraries;
+
 void CPP_Generator::compile(str input_file, str output_file)
 {
-    if(system(("g++ -x c++ -o " + output_file + " " + input_file + " -lsimondevcxx").c_str()) > 0)
+    str cmd = "g++ -L . -I . -x c++ -o " + output_file + " " + input_file + " -lsimondevcxx";
+    for(auto& lib : libraries)
+    { cmd += " -l" + lib; }
+    if(system(cmd.c_str()) > 0)
         exit(1);
 }
 
@@ -213,8 +218,7 @@ str CPP_Generator::comment_str()
     return "// ";
 }
 
-str CPP_Generator::generate_include(str file)
+str CPP_Generator::generate_include(str file, bool library)
 {
-    return "#include \"" + file + "\"\n";
+    return "#include \"" + file + (library ? ".h" : "") + "\"\n";
 }
-

@@ -172,7 +172,7 @@ str C_Generator::comment_str()
     return "// ";
 }
 
-str C_Generator::generate_include(str file)
+str C_Generator::generate_include(str file, bool library)
 {
-    return "#include \"" + file + "\"\n";
+    return "#include \"" + file + (library ? ".h" : "") + "\"\n";
 }
