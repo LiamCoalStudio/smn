@@ -4,7 +4,10 @@
 # see https://hub.docker.com/_/gcc/
 image: gcc
 
-build:
+stages:
+- build
+
+Build Linux:
   stage: build
   before_script:
     - apt update && apt -y install cmake
