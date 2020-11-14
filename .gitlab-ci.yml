@@ -6,6 +6,7 @@ image: gcc
 
 stages:
 - build
+- test
 
 Build Linux:
   stage: build
@@ -14,3 +15,17 @@ Build Linux:
   script:
     - cmake .
     - cmake --build . -- smn
+  artifacts:
+    paths:
+      - smn
+      - libsmnl.a
+      - libsimondevc.a
+      - libsimondevcxx.a
+
+Test Linux:
+  stage: test
+  script:
+    - cp src/simondev/cxx/simondevcxx.h .
+    - ./smn -o test test.smn
+    - ./test
+
