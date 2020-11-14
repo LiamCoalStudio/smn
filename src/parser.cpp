@@ -237,6 +237,8 @@ void parse_line(str s)
             *global.output << generator->generate_interface_end();
         else if(type == "struct")
             *global.output << generator->generate_struct_end();
+        else if(type == "if")
+            *global.output << generator->generate_if_end();
     }
     else if(name == "return")
     {
@@ -334,6 +336,11 @@ void parse_line(str s)
         str condition = args.front(); args.pop_front();
         str name_ = args.front(); args.pop_front();
         *global.output << generator->generate_assert_test(condition, name_);
+    }
+    else if(name == "if")
+    {
+        str condition = args.front();
+        *global.output << generator->generate_if(condition);
     }
     else
     {
