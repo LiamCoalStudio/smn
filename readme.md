@@ -29,11 +29,13 @@ You can:
 * Create functions
 * Create variables and pointers (pointers only in supporting
   languages)
-* Include modules (currently only modules written in the language
-  you are generating for)
+* Include modules
 * Inline code in another language (only works if the language you
-  are inlining can be compiled to or is the language that is being
+  are inlining can be converted to or is the language that is being
   compiled for)
+* Use libraries.
+* Include other files. (currently only files that are in the
+  language you are compiling into)
 
 What modules exist in Simon
 ---------------------------
