@@ -86,4 +86,9 @@ namespace smn_info
     extern const str simon_version;
 }
 
+#define add(a, b) a += b
+#define subtract(a, b) a -= b
+#define multiply(a, b) a *= b;
+#define divide(a, b) a /= b;
+
 #endif //SMN_SIMONDEVC_H

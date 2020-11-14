@@ -77,6 +77,11 @@ extern void print(str text);
 
 extern const char* simon_version;
 
+#define add(a, b) a += b
+#define subtract(a, b) a -= b
+#define multiply(a, b) a *= b;
+#define divide(a, b) a /= b;
+
 #ifdef __cplusplus
 }
 #endif
