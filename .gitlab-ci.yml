@@ -11,11 +11,3 @@ build:
   script:
     - cmake .
     - cmake --build . -- smn
-    - sudo cmake --install .
-    - cmake --build .
-
-# run tests using the binary built before
-test:
-  stage: test
-  script:
-    - cmake --test .
