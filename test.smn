@@ -71,6 +71,16 @@ main;
     println test;
     in.close;
 
+    /* Switch statements */
+    switch 5;
+    case 3;
+        println "3!";
+        end case;
+    case 5;
+        println "5!";
+        end case;
+    end switch;
+
     /* Return a value of 0 */
     return 0;
 
