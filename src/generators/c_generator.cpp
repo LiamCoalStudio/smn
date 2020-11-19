@@ -5,7 +5,11 @@
 str C_Generator::generate_function_call(const str &name, str *args, long arg_count)
 {
     str out = indent();
-    out += name;
+    str newname = name;
+    while(name.find('.') < name.length()) {
+        newname = newname.replace(name.find('.'), 1, 0, '$');
+    }
+    out += newname;
     out += '(';
     for (int i = 0; i < arg_count; ++i)
     {
@@ -90,8 +94,11 @@ str C_Generator::generate_switch_end()
 }
 
 str C_Generator::generate_class_visibility(const str &vis) unsupported(class_error)
-str C_Generator::generate_class_start(const str &name, str *bases, long count) unsupported(class_error)
-str C_Generator::generate_class_end() unsupported(class_error)
+str C_Generator::generate_class_start(const str &name, str *bases, long count) {
+    if(count > 0) print_warning("C classes do not support bases. They will not be used.");
+    return generate_struct_start(name);
+}
+str C_Generator::generate_class_end() { return generate_struct_end(); }
 
 str C_Generator::generate_interface_start(const str &name) unsupported(class_error)
 str C_Generator::generate_interface_end() unsupported(class_error)
@@ -138,16 +145,10 @@ str C_Generator::transform(Language other, const str &string)
             return "/*\n * An incompatible language was used here:\n * > " + string + "\n */";
     }
 }
-
 void C_Generator::compile(str input_file, str output_file)
 {
     if(system(("gcc -x c -o " + output_file + " -lsimondevc " + input_file).c_str()) > 0)
         exit(1);
-}
-
-str C_Generator::name()
-{
-    return "c";
 }
 
 str C_Generator::generate_assert_test(str c, str name)
@@ -161,18 +162,21 @@ str C_Generator::generate_assert_test(str c, str name)
     out += generate_if_end();
     return out;
 }
-
 str C_Generator::generate_comment(str text, bool indent_)
 {
     return (indent_ ? indent() : "") + "// " + text + "\n";
+}
+str C_Generator::generate_include(str file, bool library)
+{
+    return "#include \"" + file + (library ? ".h" : "") + "\"\n";
 }
 
 str C_Generator::comment_str()
 {
     return "// ";
 }
-
-str C_Generator::generate_include(str file, bool library)
+str C_Generator::name()
 {
-    return "#include \"" + file + (library ? ".h" : "") + "\"\n";
+    return "c";
 }
+
