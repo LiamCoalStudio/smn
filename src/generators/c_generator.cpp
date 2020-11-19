@@ -80,7 +80,7 @@ str C_Generator::generate_switch_case(const str &value)
 }
 str C_Generator::generate_switch_break()
 {
-    str out = indent() + "break";
+    str out = indent() + "break;\n";
     _indent--;
     return out;
 }
