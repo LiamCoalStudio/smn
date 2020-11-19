@@ -239,6 +239,10 @@ void parse_line(str s)
             *global.output << generator->generate_struct_end();
         else if(type == "if")
             *global.output << generator->generate_if_end();
+        else if(type == "case")
+            *global.output << generator->generate_switch_break();
+        else if(type == "switch")
+            *global.output << generator->generate_switch_end();
     }
     else if(name == "return")
     {
@@ -341,6 +345,14 @@ void parse_line(str s)
     {
         str condition = args.front();
         *global.output << generator->generate_if(condition);
+    }
+    else if(name == "switch")
+    {
+        *global.output << generator->generate_switch(args.front());
+    }
+    else if(name == "case")
+    {
+        *global.output << generator->generate_switch_case(args.front());
     }
     else
     {
