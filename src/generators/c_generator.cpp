@@ -6,8 +6,10 @@ str C_Generator::generate_function_call(const str &name, str *args, long arg_cou
 {
     str out = indent();
     str newname = name;
-    while(name.find('.') < name.length()) {
-        newname = newname.replace(name.find('.'), 1, 0, '$');
+    for(auto& c : newname)
+    {
+        if(c == '.')
+            c = '$';
     }
     out += newname;
     out += '(';
