@@ -1,4 +1,4 @@
-# Simon Language v0.1.1
+# Simon Language v0.3.0a
 #
 # "The comments use the ruby!"
 #   - Probably just the wind, 2020
@@ -11,7 +11,7 @@
 
 # Modules
 #
-# Various modules are defined in `simondev.h`, allowing
+# Various modules are defined in `simondevcxx.h`, allowing
 # you to include features in your program. You can even
 # make your own:
 # --: SMN :------------------------------------------------
