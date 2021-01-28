@@ -1,16 +1,12 @@
-__cat language__
+# SMN Programming Language
 
-## the readme
-[click me](https://github.com/LiamCoal/smn/blob/master/readme.md)
+## Documentation
+[readme.md](https://github.com/LiamCoal/smn/blob/master/readme.md)
 
-## the downloads
-[![releases](releases.png)](https://github.com/LiamCoal/smn/releases)
+## Downloads
+[Releases Page](https://github.com/LiamCoal/smn/releases)
 
-[![latest ZIP](zip.png)](https://github.com/LiamCoal/smn/archive/0.1.4.zip)
-
-[![latest TGZ](tgz.png)](https://github.com/LiamCoal/smn/archive/0.1.4.tar.gz)
-
-## the examples
+## Examples
 
 _Print Line_
 ```
@@ -86,6 +82,7 @@ main;
     printer.print1;
 end func;
 ```
+
 _Test_
 ```
 /language: cpp/#
