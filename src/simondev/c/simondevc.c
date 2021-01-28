@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "simondevc.h"
 
-const char* simon_version = "0.2.2";
+const char* simon_version = VERSION;
 
 void* _stack;
 int _stack_pointer;

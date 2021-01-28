@@ -6,8 +6,6 @@
 #include <vector>
 #include <src/generators/generator.h>
 
-#define SMNVERSION "0.2.2"
-
 using namespace std;
 
 global_t global;
@@ -27,10 +25,9 @@ option::ArgStatus arg_req(const option::Option& option, bool msg)
 enum optionIndex
 { UNKNOWN,
   HELP,
-  PLUS,
   OUTPUT,
   GENERATE_ONLY,
-  VERSION };
+  PRINT_VERSION };
 
 const option::Descriptor usage[] =
 {
@@ -42,7 +39,7 @@ const option::Descriptor usage[] =
          "  --out, -o         Output here." },
         {GENERATE_ONLY, 0, "g", "gen", option::Arg::None,
          "  --gen, -g         Only generate source files." },
-        {VERSION, 0, "", "version", option::Arg::None,
+        {PRINT_VERSION, 0, "", "version", option::Arg::None,
          "  --version         Print version."},
         {0, 0, 0, 0, 0, 0}
 };
@@ -72,9 +69,9 @@ int main(int argc, char** argv)
         return 0;
     }
 
-    if (options[VERSION])
+    if (options[PRINT_VERSION])
     {
-        std::cout << "smn is version " << SMNVERSION << std::endl;
+        std::cout << "smn is version " << VERSION << std::endl;
         return 0;
     }
 
