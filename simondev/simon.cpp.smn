@@ -45,3 +45,7 @@ func char*, peek, int distance, int size;
     /cpp/ for(int i = 0; i < size; i++) data[i] = peek(i + distance); /
     return data;
 end func;
+
+/cpp/ namespace smn_info { /
+    newvar const str, simon_version, VERSION;
+/cpp/ }; /
