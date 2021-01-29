@@ -1,30 +1,14 @@
 ---
-name: Bug report about: Have a bug? Report it with this!
-title: hey liam theres a bug labels: bug assignees: LiamCoal
+name: Bug report
+about: Report a bug with this template
+title: 'Issue: '
+labels: bug
+assignees: LiamCoal
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Description of the bug**
+<!-- Replace this line with a description of the bug. -->
 
-**To Reproduce**
-Steps to reproduce the behavior:
-
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
-
-- OS: [e.g. Windows, Mac, Linux]
-- Version [e.g. 0.1.4]
-
-**Additional context**
-Add any other context about the problem here.
+**Reproducing**
+<!-- Replace this line with steps to reproduce the bug. -->
