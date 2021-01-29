@@ -92,6 +92,7 @@ int main(int argc, char **argv) {
         dest << output->rdbuf();
     } else {
         auto gen = for_language(global.language);
+        output->flush();
         gen->compile("/tmp/smn0.tmp",
                      output_name);
     }
