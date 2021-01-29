@@ -9,9 +9,9 @@ include_directories(.)
 include_directories(src)
 include_directories(src/generators)
 
-if(${TESTING})
+if (${TESTING})
     add_compile_options(-DTESTING=true)
-endif()
+endif ()
 
 link_libraries(dl)
 add_compile_definitions(PRIVATE VERSION=\"0.3.0a\")
@@ -24,8 +24,8 @@ add_dependencies(smn simondevcxx simondevc)
 
 install(
         FILES
-            ${CMAKE_SOURCE_DIR}/src/simondev/cxx/simondevcxx.h
-            ${CMAKE_SOURCE_DIR}/src/simondev/c/simondevc.h
+        ${CMAKE_SOURCE_DIR}/src/simondev/cxx/simondevcxx.h
+        ${CMAKE_SOURCE_DIR}/src/simondev/c/simondevc.h
         DESTINATION /usr/include
 )
 install(TARGETS simondevcxx simondevc smnl DESTINATION /usr/lib)
@@ -36,13 +36,13 @@ enable_testing()
 set(ALL_TESTS_CPP test_framework test_stack)
 set(ALL_TESTS_C test_c_framework test_c_stack)
 
-foreach(a ${ALL_TESTS_CPP})
+foreach (a ${ALL_TESTS_CPP})
     add_custom_command(OUTPUT tests/${a}.cpp COMMAND smn -g -o tests/${a}.cpp tests/${a}.cpp.smn COMMAND mkdir -p ${CMAKE_BINARY_DIR}/tests COMMAND cp tests/${a}.cpp ${CMAKE_BINARY_DIR}/tests WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endforeach()
+endforeach ()
 
-foreach(a ${ALL_TESTS_C})
+foreach (a ${ALL_TESTS_C})
     add_custom_command(OUTPUT tests/${a}.c COMMAND smn -g -o tests/${a}.c tests/${a}.c.smn COMMAND mkdir -p ${CMAKE_BINARY_DIR}/tests COMMAND cp tests/${a}.c ${CMAKE_BINARY_DIR}/tests WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endforeach()
+endforeach ()
 
 add_executable(test_framework tests/test_framework.cpp)
 target_link_libraries(test_framework simondevcxx)

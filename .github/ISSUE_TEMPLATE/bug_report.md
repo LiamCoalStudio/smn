@@ -1,9 +1,6 @@
 ---
-name: Bug report
-about: Have a bug? Report it with this!
-title: hey liam theres a bug
-labels: bug
-assignees: LiamCoal
+name: Bug report about: Have a bug? Report it with this!
+title: hey liam theres a bug labels: bug assignees: LiamCoal
 
 ---
 
@@ -12,6 +9,7 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -24,8 +22,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. Windows, Mac, Linux]
- - Version [e.g. 0.1.4]
+
+- OS: [e.g. Windows, Mac, Linux]
+- Version [e.g. 0.1.4]
 
 **Additional context**
 Add any other context about the problem here.

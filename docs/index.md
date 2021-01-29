@@ -1,14 +1,17 @@
 # SMN Programming Language
 
 ## Documentation
+
 [readme.md](https://github.com/LiamCoal/smn/blob/master/readme.md)
 
 ## Downloads
+
 [Releases Page](https://github.com/LiamCoal/smn/releases)
 
 ## Examples
 
 _Print Line_
+
 ```
 /language: cpp/#
 
@@ -21,6 +24,7 @@ end func;
 ```
 
 _Stack_
+
 ```
 /language: cpp/#
 
@@ -36,6 +40,7 @@ end func;
 ```
 
 _Classes_
+
 ```
 /language: cpp/#
 
@@ -55,6 +60,7 @@ end func;
 ```
 
 _Interfaces_
+
 ```
 /language: cpp/#
 
@@ -84,6 +90,7 @@ end func;
 ```
 
 _Test_
+
 ```
 /language: cpp/#
 /test/#
