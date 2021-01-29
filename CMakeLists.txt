@@ -14,7 +14,7 @@ if (${TESTING})
 endif ()
 
 link_libraries(dl)
-add_compile_definitions(PRIVATE VERSION=\"0.3.0a\")
+add_compile_definitions(PRIVATE VERSION=\"0.4.0\")
 add_library(smnl STATIC src/main.cpp src/parser.cpp src/simon.h optionparser.h src/languages.h src/generators/generator.h src/generators/cpp_generator.cpp src/generators/c_generator.cpp src/generators/generator.cpp)
 add_library(simondevcxx src/simondev/cxx/simondevcxx.h src/simondev/cxx/simondevcxx.cpp)
 add_library(simondevc src/simondev/c/simondevc.h src/simondev/c/simondevc.c)
