@@ -1,7 +1,7 @@
 #include "simon.h"
 #include <iostream>
 #include <generator.h>
-#include <cstring>
+#include <fstream>
 
 bool comment_mode;
 void parse_line(str str);
@@ -297,6 +297,12 @@ void parse_line(str s) {
                 modDef[j] = '$';
         }
         *global.output << "#ifdef " << modDef << std::endl;
+    } else if (name == ".include") {
+        auto input = std::ifstream(args.front());
+        auto linenum = global.line;
+        global.line = 0;
+        while (!!input) ::parse(&input);
+        global.line = linenum;
     } else {
         str argsv[args.size()];
         int j = 0;
