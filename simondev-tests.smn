@@ -1,0 +1,18 @@
+/language: cpp/
+/test/
+
+uses simon;
+uses simon.io;
+uses simon.math;
+end uses;
+
+test add;
+    newvar int, a, 5;
+    newvar int, b, 7;
+    add a, b;
+    return a == 12;
+end func;
+
+main;
+    run_tests;
+end func;

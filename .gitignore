@@ -11,3 +11,7 @@ simondev/*.h
 .idea/workspace.xml
 test
 test.txt
+
+simondevtest
+
+simondevtest.cpp

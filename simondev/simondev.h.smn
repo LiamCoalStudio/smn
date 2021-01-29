@@ -54,6 +54,16 @@ func inline void, print, const T& o;
 end func;
 
 /cpp/ template<class T> /
+func inline void, eprintln, const T& o;
+    /cpp/ strm_println<T>(std::cerr, o); /
+end func;
+
+/cpp/ template<class T> /
+func inline void, eprint, const T& o;
+    /cpp/ strm_print<T>(std::cerr, o); /
+end func;
+
+/cpp/ template<class T> /
 func inline void, input, istr& s, T& o;
     /cpp/ s >> o; /
 end func;
