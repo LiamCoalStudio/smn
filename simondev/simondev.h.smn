@@ -1,0 +1,99 @@
+/language: cpp/
+
+include string;
+
+/cpp/ #pragma once /
+/cpp/ #define declare(t, s) t s /
+/cpp/ typedef std::string str; /
+/cpp/ typedef char* cstr; /
+
+module simon;
+
+declare void, start_stack();
+declare void, end_stack();
+declare void, push(char);
+declare void, push(char*, int);
+declare char, pop();
+declare char*, pop(int);
+declare char, peek(int);
+declare char*, peek(int, int);
+
+end module;
+
+module simon.io;
+
+include iostream;
+include fstream;
+
+/cpp/ typedef std::ifstream ifstr; /
+/cpp/ typedef std::ofstream ofstr; /
+/cpp/ typedef std::fstream iofstr; /
+
+/cpp/ typedef std::istream istr; /
+/cpp/ typedef std::ostream ostr; /
+/cpp/ typedef std::iostream iostr; /
+
+/cpp/ template<class T> /
+func inline void, strm_println, ostr& stream, const T& o;
+    /cpp/ stream << o << std::endl; /
+end func;
+
+/cpp/ template<class T> /
+func inline void, strm_print, ostr& stream, const T& o;
+    /cpp/ stream << o; /
+end func;
+
+/cpp/ template<class T> /
+func inline void, println, const T& o;
+    /cpp/ strm_println<T>(std::cout, o); /
+end func;
+
+/cpp/ template<class T> /
+func inline void, print, const T& o;
+    /cpp/ strm_print<T>(std::cout, o); /
+end func;
+
+/cpp/ template<class T> /
+func inline void, input, istr& s, T& o;
+    /cpp/ s >> o; /
+end func;
+
+/cpp/ template<class T> /
+func inline void, output, ostr& s, T& o;
+    /cpp/ s << o; /
+end func;
+
+end module;
+
+module simon.math;
+
+func inline int, add, int& a, int b;
+    /cpp/ a += b; /
+    return a;
+end func;
+
+func inline int, subtract, int& a, int b;
+    /cpp/ a -= b; /
+    return a;
+end func;
+
+func inline int, multiply, int& a, int b;
+    /cpp/ a *= b; /
+    return a;
+end func;
+
+func inline int, divide, int& a, int b;
+    /cpp/ a /= b; /
+    return a;
+end func;
+
+func inline int, modulus, int& a, int b;
+    /cpp/ a %= b; /
+    return a;
+end func;
+
+end module;
+
+/cpp/ namespace smn_info { /
+    newvar const str, simon_version, "0.5.0";
+/cpp/ }; /

@@ -29,14 +29,13 @@
 # Include IO and simon.
 uses simon;
 uses simon.io;
-uses simon.io.fs;
 
 # Includes simondev
 end uses;
 
 include string;
 
-declare void, test;
+declare void, test();
 
 # Main Function
 #
@@ -62,13 +61,14 @@ main;
     println smn_info::simon_version;
 
     # Open an output file
-    newvar ofile, out, open_out("test.txt");
-    write out, "test!";
+    newvar ofstr, out, ofstr("test.txt");
+    output out, "test!";
     out.close;
 
     # Open an input file
-    newvar ifile, in, open_in("test.txt");
-    newvar str, test, read<str>(in);
+    newvar ifstr, in, ifstr("test.txt");
+    newvar str, test;
+    input in, test;
     println test;
     in.close;
 

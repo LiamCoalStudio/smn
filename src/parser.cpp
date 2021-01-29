@@ -64,12 +64,15 @@ void parse_line(str s) {
     auto generator = for_language(global.language);
     if (s == "/language: cpp/") {
         global.language = Language::CPP;
+        return;
     }
     if (s == "/language: c/") {
         global.language = Language::C;
+        return;
     }
     if (s == "/test/") {
         global.is_test = true;
+        return;
     }
     if(global.language == NONE) {
         print_error("at line " + current_line + ": must have /language: .../ before code");
@@ -77,16 +80,14 @@ void parse_line(str s) {
     }
     if(comments) *global.output << generator->generate_comment("=> " + s, true);
     if (s.substr(0, 5) == "/cpp/") {
-        *global.output << generator->transform(CPP, s.substr(6, s.size() - 8)) << std::endl;
+        *global.output << generator->transform(CPP, s.substr(5, s.size() - 7)) << std::endl;
     }
     if (s.substr(0, 3) == "/c/") {
-        *global.output << generator->transform(C, s.substr(4, s.size() - 6)) << std::endl;
+        *global.output << generator->transform(C, s.substr(3, s.size() - 5)) << std::endl;
     }
     if (s.substr(0, 5) == "/asm/") {
-        *global.output << generator->transform(ASSEMBLY, s.substr(6, s.size() - 8)) << std::endl;
+        *global.output << generator->transform(ASSEMBLY, s.substr(5, s.size() - 7)) << std::endl;
     }
-    global.output
-            ->flush();
     if (s[0] == '/') return;
     std::list<str> args, lines;
     str name;
@@ -147,7 +148,13 @@ void parse_line(str s) {
         str name = args.front();
         args.pop_front();
         current_function = name;
-        *global.output << generator->generate_function_start(type, name, nullptr, 0);
+        str f_args[32];
+        int f_arg_count = 0;
+        for (auto& str : args) {
+            f_args[f_arg_count] = str;
+            f_arg_count++;
+        }
+        *global.output << generator->generate_function_start(type, name, f_args, f_arg_count);
     } else if (name == "main") {
         *global.output << generator->generate_function_start("int",
                                                              "main",
@@ -159,7 +166,7 @@ void parse_line(str s) {
         if (type == "func")
             *global.output << generator->generate_function_end();
         else if (type == "uses")
-            *global.output << "#include <simondev" << generator->name() << ".h>" << std::endl << std::endl;
+            *global.output << "#include <simondev.h>" << std::endl << std::endl;
         else if (type == "class")
             *global.output << generator->generate_class_end();
         else if (type == "interface")
@@ -178,6 +185,8 @@ void parse_line(str s) {
             *global.output << generator->generate_while_end();
         else if (type == "postwhile")
             *global.output << generator->generate_postwhile_end(args.front());
+        else if (type == "module" && global.language == CPP)
+            *global.output << "#endif" << std::endl;
     } else if (name == "return") {
         *global.output << generator->generate_function_return(args.front());
         args.pop_front();
@@ -280,6 +289,14 @@ void parse_line(str s) {
         *global.output << generator->generate_while_start(args.front());
     } else if (name == "postwhile") {
         *global.output << generator->generate_postwhile_start();
+    } else if (name == "module" && global.language == Language::CPP) {
+        str modName = args.front();
+        str modDef = "MODULE_" + modName;
+        for (int j = 0; j < modDef.size(); j++) {
+            if(modDef[j] == '.' || modDef[j] == '@')
+                modDef[j] = '$';
+        }
+        *global.output << "#ifdef " << modDef << std::endl;
     } else {
         str argsv[args.size()];
         int j = 0;
@@ -290,8 +307,8 @@ void parse_line(str s) {
         *global.output << generator->generate_function_call(name, argsv, args.size());
         *global.output << generator->generate_line_end();
     }
-    global.output
-            ->flush();
+//    global.output
+//            ->flush();
     std::cout.flush();
     std::cerr.flush();
 }

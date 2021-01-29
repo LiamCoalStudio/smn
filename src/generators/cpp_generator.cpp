@@ -127,6 +127,7 @@ str CPP_Generator::generate_class_end() {
 
 str CPP_Generator::generate_interface_start(const str &name) {
     class_info._class = true;
+    class_info._unimpl = true;
     str out = indent() + "class " + name + " {\n";
     _indent++;
     return out;
@@ -137,7 +138,7 @@ str CPP_Generator::generate_interface_end() {
         print_error("at line " + current_line + ": attempted to use `end interface` when no interface is being defined");
         exit(1);
     }
-    if(class_info._unimpl) {
+    if(!class_info._unimpl) {
         print_warning("at line " + current_line + ": used `end interface` on an class (ok for C++)");
     }
     class_info._class = false;
@@ -218,7 +219,7 @@ str CPP_Generator::comment_str() {
 }
 
 str CPP_Generator::generate_include(str file, bool library) {
-    return "#include \"" + file + (library ? ".h" : "") + "\"\n";
+    return "#include <" + file + (library ? ".h" : "") + ">\n";
 }
 
 str CPP_Generator::generate_for_start(const str &v, int f, int t) {

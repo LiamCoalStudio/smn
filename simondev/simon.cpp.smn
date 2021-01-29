@@ -1,0 +1,47 @@
+/language: cpp/
+
+uses simon.math;
+uses simon;
+end uses;
+
+newvar char*, stack;
+newvar int, stack_pos;
+
+func void, start_stack;
+    setvar stack_pos, 0;
+    setvar stack, new char[1024];
+end func;
+
+func void, end_stack;
+    /cpp/ delete stack; /
+end func;
+
+func void, push, char a;
+    setvar stack[stack_pos], a;
+    add stack_pos, 1;
+end func;
+
+func void, push, char* a, int size;
+    /cpp/ for(int i = 0; i < size; i++) push(a[i]); /
+end func;
+
+func char, pop;
+    subtract stack_pos, 1;
+    return stack[stack_pos];
+end func;
+
+func char*, pop, int size;
+    newvar char*, data, new char[size];
+    /cpp/ for(int i = 0; i < size; i++) data[i] = pop(); /
+    return data;
+end func;
+
+func char, peek, int distance;
+    return stack[stack_pos - 1 - distance];
+end func;
+
+func char*, peek, int distance, int size;
+    newvar char*, data, new char[size];
+    /cpp/ for(int i = 0; i < size; i++) data[i] = peek(i + distance); /
+    return data;
+end func;

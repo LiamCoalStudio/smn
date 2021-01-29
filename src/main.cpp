@@ -95,5 +95,7 @@ int main(int argc, char **argv) {
         gen->compile("/tmp/smn0.tmp",
                      output_name);
     }
+
+    global.output->flush();
     return 0;
 }
