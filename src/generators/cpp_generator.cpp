@@ -83,10 +83,19 @@ str CPP_Generator::generate_switch_end() {
 }
 
 str CPP_Generator::generate_class_visibility(const str &vis) {
-    return indent() + vis + ":\n";
+    if(vis == "public" || vis == "private" || vis == "protected")
+        return indent() + vis + ":\n";
+    else {
+        print_error("at line " + current_line + ": invalid visibility `" + vis + "`");
+        exit(1);
+    }
 }
 
 str CPP_Generator::generate_class_start(const str &name, str *bases, long count) {
+    if(class_info._class) {
+        print_error("at line " + current_line + ": cannot nest classes");
+        exit(1);
+    }
     str out = "\n" + indent() + "class " + name;
     if (count > 0) {
         out += "\n: ";
@@ -104,29 +113,35 @@ str CPP_Generator::generate_class_start(const str &name, str *bases, long count)
 }
 
 str CPP_Generator::generate_class_end() {
-    class_info = {
-            false,
-            false
-    };
+    if(!class_info._class) {
+        print_error("at line " + current_line + ": attempted to use `end class` when no class is being defined");
+        exit(1);
+    }
+    if(class_info._unimpl) {
+        print_warning("at line " + current_line + ": used `end class` on an interface (ok for C++)");
+    }
+    class_info._class = false;
     _indent--;
     return indent() + "};\n";
 }
 
 str CPP_Generator::generate_interface_start(const str &name) {
-    class_info = {
-            true,
-            true
-    };
+    class_info._class = true;
     str out = indent() + "class " + name + " {\n";
     _indent++;
     return out;
 }
 
 str CPP_Generator::generate_interface_end() {
-    class_info = {
-            false,
-            false
-    };
+    if(!class_info._class) {
+        print_error("at line " + current_line + ": attempted to use `end interface` when no interface is being defined");
+        exit(1);
+    }
+    if(class_info._unimpl) {
+        print_warning("at line " + current_line + ": used `end interface` on an class (ok for C++)");
+    }
+    class_info._class = false;
+    class_info._unimpl = false;
     _indent--;
     return indent() + "};\n";
 }
@@ -163,8 +178,8 @@ str CPP_Generator::transform(Language other, const str &string) {
         case ASSEMBLY:
             return "asm(\"" + string + "\");\n";
         default:
-            print_warning("Incompatible language used! Replaced with comment. `" + string + "`");
-            return "/*\n * An incompatible language was used here:\n * > " + string + "\n */";
+            print_error("at line " + current_line + ": incompatible language used");
+            exit(1);
     }
 }
 
@@ -207,6 +222,13 @@ str CPP_Generator::generate_include(str file, bool library) {
 }
 
 str CPP_Generator::generate_for_start(const str &v, int f, int t) {
+    if(t < f) {
+        print_error("at line " + current_line + ": [for] <to> (" + std::to_string(t) + ") cannot be less than <from> (" + std::to_string(f) + ")");
+        exit(1);
+    }
+    if(t == f) {
+        print_warning("at line " + current_line + ": dead code");
+    }
     str s = indent() + "for(int " + v + " = " + std::to_string(f) + "; " + v + " < " + std::to_string(t) + "; " + v +
             "++) {\n";
     _indent++;
@@ -219,6 +241,12 @@ str CPP_Generator::generate_for_end() {
 }
 
 str CPP_Generator::generate_while_start(const str &condition) {
+    if(condition == "true") {
+        print_warning("at line " + current_line + ": infinite loop");
+    }
+    if(condition == "false") {
+        print_warning("at line " + current_line + ": dead code");
+    }
     str s = indent() + "while(" + condition + ") {\n";
     _indent++;
     return s;
@@ -236,6 +264,12 @@ str CPP_Generator::generate_postwhile_start() {
 }
 
 str CPP_Generator::generate_postwhile_end(const str &condition) {
+    if(condition == "true") {
+        print_warning("at line " + current_line + ": infinite loop");
+    }
+    if(condition == "false") {
+        print_warning("at line " + current_line + ": single run postwhile (consider removing postwhile loop here)");
+    }
     _indent--;
     return indent() + "} while(" + condition + ");\n";
 }

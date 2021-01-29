@@ -81,17 +81,11 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    // Set global variables
-//    global.variable_context["@color.red"] = col_red;
-//    global.variable_context["@color.blue"] = col_blue;
-//    global.variable_context["@color.yellow"] = col_yellow;
-//    global.variable_context["@color.reset"] = col_clear;
-//    global.variable_context["@cmdline.file"] = str(parse.nonOption(0));
-//    global.variable_context["@simon.version"] = simon_version;
-
+    global.language = NONE;
     global.output = output;
     global.output
             ->flush();
+    global.line = 0;
 
     // Loop parse() until input has an error
     while (!!*input) ::parse(input);

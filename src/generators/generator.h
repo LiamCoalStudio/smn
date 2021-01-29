@@ -4,7 +4,7 @@
 #include <simon.h>
 
 #define unsupported(str) \
-{ throw UnsupportedFeatureException("classes not supported in C"); }
+{ print_error("at line " + current_line + ": unsupported operation in " + this->name() + ": " + str); exit(1); }
 
 class UnsupportedFeatureException : public std::exception {
 private:
@@ -153,10 +153,10 @@ inline Generator *for_language(Language l) {
             return new CPP_Generator;
         case C:
             return new C_Generator;
-        case ASSEMBLY:
-            break;
+        case NONE:
+        default:
+            return nullptr;
     }
-    return nullptr;
 }
 
 extern int _indent;

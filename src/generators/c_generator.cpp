@@ -1,6 +1,6 @@
 #include "generator.h"
 
-#define class_error "Classes are not supported in C"
+#define class_error "this type of class is not supported"
 
 str C_Generator::generate_function_call(const str &name, str *args, long arg_count) {
     str out = indent();
@@ -90,7 +90,7 @@ str C_Generator::generate_switch_end() {
 str C_Generator::generate_class_visibility(const str &vis) unsupported(class_error)
 
 str C_Generator::generate_class_start(const str &name, str *bases, long count) {
-    if (count > 0) print_warning("C classes do not support bases. They will not be used.");
+    if (count > 0) unsupported("cannot have base classes")
     return generate_struct_start(name);
 }
 
@@ -133,7 +133,8 @@ str C_Generator::transform(Language other, const str &string) {
         case ASSEMBLY:
             return "asm(\"" + string + "\");\n";
         default:
-            return "/*\n * An incompatible language was used here:\n * > " + string + "\n */";
+            print_error("at line " + current_line + ": incompatible language used");
+            exit(1);
     }
 }
 
@@ -170,6 +171,13 @@ str C_Generator::name() {
 }
 
 str C_Generator::generate_for_start(const str &v, int f, int t) {
+    if(t < f) {
+        print_error("at line " + current_line + ": [for] <to> (" + std::to_string(t) + ") cannot be less than <from> (" + std::to_string(f) + ")");
+        exit(1);
+    }
+    if(t == f) {
+        print_warning("at line " + current_line + ": dead code");
+    }
     str s = indent() + "for(int " + v + " = " + std::to_string(f) + "; " + v + " < " + std::to_string(t) + "; " + v +
             "++) {\n";
     _indent++;
@@ -182,6 +190,12 @@ str C_Generator::generate_for_end() {
 }
 
 str C_Generator::generate_while_start(const str &condition) {
+    if(condition == "true") {
+        print_warning("at line " + current_line + ": infinite loop");
+    }
+    if(condition == "false") {
+        print_warning("at line " + current_line + ": dead code");
+    }
     str s = indent() + "while(" + condition + ") {\n";
     _indent++;
     return s;
@@ -199,6 +213,12 @@ str C_Generator::generate_postwhile_start() {
 }
 
 str C_Generator::generate_postwhile_end(const str &condition) {
+    if(condition == "true") {
+        print_warning("at line " + current_line + ": infinite loop");
+    }
+    if(condition == "false") {
+        print_warning("at line " + current_line + ": single run postwhile (consider removing postwhile loop here)");
+    }
     _indent--;
     return indent() + "} while(" + condition + ");\n";
 }

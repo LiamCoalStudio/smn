@@ -1,4 +1,4 @@
-# Simon Language v0.4.0
+# Simon Language v0.4.1
 #
 # "Something about semicolon."
 #   - Simon (Cat Edition), 2021
@@ -7,7 +7,7 @@
 #
 # Simon compiles to other languages, and this line tells
 # the compiler which one to compile for.
-/language: cpp/#
+/language: cpp/
 
 # Modules
 #
@@ -43,37 +43,36 @@ declare void, test;
 # Just the C++ Main Function. Argument Count is stored in
 # argc, and the actual Arguments are in argv.
 main;
-    /* (You can also use C style comments like this) */
-
-    /* Prints the executable name to the console */
+    # Prints the executable name to the console
     println argv[0];
 
-    /* Creates a new variable... */
+    # Creates a new variable...
     newvar int, cat, 7;
-    setvar cat, 8; /* ...and sets it. */
+    # ...and sets it.
+    setvar cat, 8;
 
-    /* Creates a new pointer... [C/C++] */
+    # Creates a new pointer... [C/C++]
     newptr short, jimmy;
     setptr jimmy, cat;
 
-    /* Call a declared function */
+    # Call a declared function
     test;
 
-    /* Some info about SMN is available at runtime */
+    # Some info about SMN is available at runtime
     println smn_info::simon_version;
 
-    /* Open an output file */
+    # Open an output file
     newvar ofile, out, open_out("test.txt");
     write out, "test!";
     out.close;
 
-    /* Open an input file */
+    # Open an input file
     newvar ifile, in, open_in("test.txt");
     newvar str, test, read<str>(in);
     println test;
     in.close;
 
-    /* Switch statements */
+    # Switch statements
     switch 5;
     case 3;
         println "3!";
@@ -96,15 +95,15 @@ main;
         println "One time println!";
     end postwhile, false;
 
-    /* Return a value of 0 */
+    # Return a value of 0
     return 0;
 
 # End the function
-end func; /* main */
+end func;
 
 func void, test;
     println "This is coming from the test function!";
-end func; /* void test */
+end func;
 
 class Test;
     visibility public;

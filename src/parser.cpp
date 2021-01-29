@@ -20,43 +20,31 @@ bool hasEnding(std::string const &fullString, std::string const &ending) {
  * Parses a smn file, and does stuff with it.
  */
 void parse(std::istream *input) {
+    global.line++;
     auto generator = for_language(global.language);
     current_function = "";
     str obj;
-    *input >> obj;
+    char* ptr = new char[512];
+    input->getline(ptr, 512);
+    obj = str(ptr);
     if (obj.empty()) return;
 
     // Comments
-    if (obj == "/*" && !comment_mode) comment_mode = true;
-    if (obj == "*/" && comment_mode) comment_mode = false;
-    if (obj == "/*" || obj == "*/" || (comment_mode && obj != "*/")) {
-        if (obj == "/*")
-            *global.output << generator->comment_str();
-        else if (obj == "*/")
-            *global.output << "\n";
-        else if (obj != "/*" && obj != "*/")
-            *global.output << obj << " ";
+    int i = 0;
+    for (; obj[i] == ' ' || obj[i] == '\t'; ++i) {
+        if(i >= obj.size()) return;
+    }
+    if (obj[i] == '#') {
         return;
     }
-    if (obj[0] == '#') {
-        char c = 0;
-        while (c != '\n') {
-            input->read(&c, 1);
-        }
-        return;
-    }
-    bool body = obj[obj.size() - 1] == ':';
-    bool is_directive = obj[0] == '/';
+    bool is_directive = obj[i] == '/';
     str match = ";";
-    if (body) match = ":";
-    if (is_directive) match = "/#";
-    while (!hasEnding(obj, match) && !input->eof()) {
-        obj += ' ';
-        str add;
-        *input >> add;
-        obj += add;
+    if (is_directive) match = "/";
+    if(!hasEnding(obj, match) && !is_directive) {
+        print_error("at line " + current_line + ": missing semicolon");
+        exit(1);
     }
-    parse_line(obj);
+    parse_line(str((char*)((long)ptr + i)));
 
     // Flush outputs
     std::cout.flush();
@@ -69,26 +57,30 @@ enum ParsePart {
 
 void parse_line(str s) {
 #if TESTING == true
-    print_info(s);
+    print_info(current_line + " : " + s);
 #endif
     auto generator = for_language(global.language);
     *global.output << generator->generate_comment("=> " + s, true);
-    if (s == "/language: cpp/#") {
+    if (s == "/language: cpp/") {
         global.language = Language::CPP;
     }
-    if (s == "/language: c/#") {
+    if (s == "/language: c/") {
         global.language = Language::C;
     }
-    if (s == "/test/#") {
+    if (s == "/test/") {
         global.is_test = true;
     }
-    if (s.substr(0, 6) == "/cpp/ ") {
+    if(global.language == NONE) {
+        print_error("at line " + current_line + ": must have /language: .../ before code");
+        exit(1);
+    }
+    if (s.substr(0, 5) == "/cpp/") {
         *global.output << generator->transform(CPP, s.substr(6, s.size() - 8)) << std::endl;
     }
-    if (s.substr(0, 4) == "/c/ ") {
+    if (s.substr(0, 3) == "/c/") {
         *global.output << generator->transform(C, s.substr(4, s.size() - 6)) << std::endl;
     }
-    if (s.substr(0, 6) == "/asm/ ") {
+    if (s.substr(0, 5) == "/asm/") {
         *global.output << generator->transform(ASSEMBLY, s.substr(6, s.size() - 8)) << std::endl;
     }
     global.output
@@ -99,7 +91,6 @@ void parse_line(str s) {
     str buf;
     ParsePart part = Name;
     bool started;
-//    LanguageElement* element;
     char l = '\x00';
     int i = 0;
     bool interpret_next = true;
@@ -114,10 +105,8 @@ void parse_line(str s) {
         switch (part) {
             case Name:
                 if (c == ' ') {
-//                    element = get(name);
                     part = Arguments;
                 } else if (c == ';') {
-//                    element = get(name);
                     part = Finished;
                 } else name += c;
                 goto out_of_switch;
@@ -138,12 +127,6 @@ void parse_line(str s) {
                 else if (c == '\\') {
                     interpret_next = false;
                 }
-//                else if(c == ')' && paren_level > 0)
-//                {
-//                    paren_level--;
-//                    buf += c;
-//                    started = true;
-//                }
                 else {
                     buf += c;
                     started = true;
@@ -153,18 +136,10 @@ void parse_line(str s) {
         out_of_switch:
         i++;
         if (part == Finished) break;
-//            if(element == nullptr) return;
         l = c;
     }
 
-//    if(element == nullptr)
-//    {
-//        print_error("invalid -> " << name);
-//        return;
-//    }
-
     if (name == "func") {
-        // This is a function declaration.
         str type = args.front();
         args.pop_front();
         str name = args.front();
@@ -220,7 +195,6 @@ void parse_line(str s) {
         str name_ = args.front();
         args.pop_front();
 
-        // <type> <name> = <value>
         *global.output << generator->generate_variable_define("static " + type + '*',
                                                               name_,
                                                               "(" + type + "*)malloc(sizeof(" + type + "))");

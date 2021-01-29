@@ -3,6 +3,7 @@
 enum Language {
     CPP,
     C,
-    ASSEMBLY
+    ASSEMBLY,
+    NONE
 };
 #endif //SMN_LANGUAGES_H
