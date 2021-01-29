@@ -1,5 +1,6 @@
 #ifndef SMN_SIMONDEVC_H
 #define SMN_SIMONDEVC_H
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -16,7 +17,7 @@ extern "C" {
 typedef char *str;
 #ifdef MODULE_simon
 extern void *_stack;
-extern int  _stack_pointer;
+extern int _stack_pointer;
 extern void start_stack();
 extern void end_stack();
 extern void push(char c);
@@ -55,6 +56,7 @@ extern void println(str text);
 extern void print(str text);
 #endif
 #ifdef MODULE_simon$math
+
 #include <math.h>
 
 #define pi M_PI

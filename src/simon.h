@@ -4,6 +4,7 @@
 
 #ifndef SIMON_SIMON_H
 #define SIMON_SIMON_H
+
 #include <unordered_map>
 #include <list>
 #include <iostream>
@@ -23,22 +24,21 @@
 #ifndef TESTING
 #define TESTING false
 #endif
-typedef std::string                  str;
-typedef signed char                  int8;
-typedef signed short                 int16;
-typedef signed int                   int32;
-typedef signed long long             int64;
-typedef unsigned char                uint8;
-typedef unsigned short               uint16;
-typedef unsigned int                 uint32;
-typedef unsigned long long           uint64;
+typedef std::string str;
+typedef signed char int8;
+typedef signed short int16;
+typedef signed int int32;
+typedef signed long long int64;
+typedef unsigned char uint8;
+typedef unsigned short uint16;
+typedef unsigned int uint32;
+typedef unsigned long long uint64;
 typedef std::unordered_map<str, str> var_context_t;
-struct global_t
-{
+struct global_t {
     var_context_t variable_context;
-    Language      language;
+    Language language;
     std::iostream *output;
-    bool          is_test;
+    bool is_test;
 };
-extern global_t                      global;
+extern global_t global;
 #endif //SIMON_SIMON_H

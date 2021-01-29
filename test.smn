@@ -34,6 +34,8 @@ uses simon.io.fs;
 # Includes simondev
 end uses;
 
+include string;
+
 declare void, test;
 
 # Main Function
@@ -80,6 +82,19 @@ main;
         println "5!";
         end case;
     end switch;
+
+    for i, 2, 7;
+        println std::to_string(i);
+    end for;
+
+    while false;
+        println "Wrong!";
+        return 1;
+    end while;
+
+    postwhile;
+        println "One time println!";
+    end postwhile, false;
 
     /* Return a value of 0 */
     return 0;
