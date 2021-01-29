@@ -39,7 +39,7 @@ void parse(std::istream *input) {
     }
     bool is_directive = obj[i] == '/';
     str match = ";";
-    if (is_directive) match = "/";
+    if(is_directive) match = "/";
     if(!hasEnding(obj, match) && !is_directive) {
         print_error("at line " + current_line + ": missing semicolon");
         exit(1);
@@ -55,12 +55,13 @@ enum ParsePart {
     Name, Arguments, Body, Finished
 };
 
+extern bool comments;
+
 void parse_line(str s) {
 #if TESTING == true
     print_info(current_line + " : " + s);
 #endif
     auto generator = for_language(global.language);
-    *global.output << generator->generate_comment("=> " + s, true);
     if (s == "/language: cpp/") {
         global.language = Language::CPP;
     }
@@ -74,6 +75,7 @@ void parse_line(str s) {
         print_error("at line " + current_line + ": must have /language: .../ before code");
         exit(1);
     }
+    if(comments) *global.output << generator->generate_comment("=> " + s, true);
     if (s.substr(0, 5) == "/cpp/") {
         *global.output << generator->transform(CPP, s.substr(6, s.size() - 8)) << std::endl;
     }

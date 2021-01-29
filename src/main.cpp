@@ -23,33 +23,28 @@ enum optionIndex {
     HELP,
     OUTPUT,
     GENERATE_ONLY,
-    PRINT_VERSION
+    PRINT_VERSION,
+    NO_COMMENT,
 };
 const option::Descriptor usage[] =
         {
-                {
-                        UNKNOWN,       0, "",  "",        option::Arg::None,
-                                                             "USAGE: simon [options] <file>\n\nOptions:"
-                },
-                {
-                        HELP,          0, "",  "help",    option::Arg::None,
-                                                             "  --help            Print usage and exit."
-                },
-                {
-                        OUTPUT,        0, "o", "out",     arg_req,
-                                                             "  --out, -o         Output here."
-                },
-                {
-                        GENERATE_ONLY, 0, "g", "gen",     option::Arg::None,
-                                                             "  --gen, -g         Only generate source files."
-                },
-                {
-                        PRINT_VERSION, 0, "",  "version", option::Arg::None,
-                                                             "  --version         Print version."
-                },
-                {       0,             0, 0,   0,         0, 0}
+                {UNKNOWN, 0, "",  "", option::Arg::None,
+                 "USAGE: simon [options] <file>\n\nOptions:"},
+                {HELP, 0, "", "help", option::Arg::None,
+                 "  --help            Print usage and exit."},
+                {OUTPUT, 0, "o", "out", arg_req,
+                 "  --out, -o         Output here."},
+                {GENERATE_ONLY, 0, "g", "gen", option::Arg::None,
+                 "  --gen, -g         Only generate source files."},
+                {PRINT_VERSION, 0, "", "version", option::Arg::None,
+                 "  --version         Print version."},
+                {NO_COMMENT, 0, "n", "no-comment", option::Arg::None,
+                 "  --no-comment, -n  Do not include original code comments in output."},
+                {0, 0, 0, 0, 0, 0}
         };
 list<std::string> libraries;
+
+bool comments = true;
 
 /**
  * @param argc Argument count.
@@ -86,6 +81,8 @@ int main(int argc, char **argv) {
     global.output
             ->flush();
     global.line = 0;
+
+    comments = !options[NO_COMMENT];
 
     // Loop parse() until input has an error
     while (!!*input) ::parse(input);
