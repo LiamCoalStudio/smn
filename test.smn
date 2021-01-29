@@ -35,6 +35,8 @@ end uses;
 
 include string;
 
+.include test2.smn;
+
 declare void, test();
 
 # Main Function
@@ -94,6 +96,8 @@ main;
     postwhile;
         println "One time println!";
     end postwhile, false;
+
+    test2;
 
     # Return a value of 0
     return 0;

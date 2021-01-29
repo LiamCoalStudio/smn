@@ -1,7 +1,7 @@
 #include "simon.h"
 #include <iostream>
 #include <generator.h>
-#include <cstring>
+#include <fstream>
 
 bool comment_mode;
 void parse_line(str str);
@@ -61,7 +61,7 @@ int test_index = 0;
 
 void parse_line(str s) {
 #if TESTING == true
-    print_info(current_line + " : " + s);
+    print_info(current_line + " " + global.filename + " : " + s);
 #endif
     auto generator = for_language(global.language);
     if (s == "/language: cpp/") {
@@ -312,6 +312,15 @@ void parse_line(str s) {
                     generator->generate_line_end() <<
                 generator->generate_if_end();
         }
+    } else if (name == ".include") {
+        auto input = std::ifstream(args.front());
+        auto linenum = global.line;
+        auto filename = global.filename;
+        global.line = 0;
+        global.filename = args.front();
+        while (!!input) ::parse(&input);
+        global.line = linenum;
+        global.filename = filename;
     } else {
         str argsv[args.size()];
         int j = 0;

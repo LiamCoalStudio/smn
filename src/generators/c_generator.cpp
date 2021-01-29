@@ -133,7 +133,7 @@ str C_Generator::transform(Language other, const str &string) {
         case ASSEMBLY:
             return "asm(\"" + string + "\");\n";
         default:
-            print_error("at line " + current_line + ": incompatible language used");
+            print_error(global.filename + " at line " + current_line + ": incompatible language used");
             exit(1);
     }
 }
@@ -172,11 +172,11 @@ str C_Generator::name() {
 
 str C_Generator::generate_for_start(const str &v, int f, int t) {
     if(t < f) {
-        print_error("at line " + current_line + ": [for] <to> (" + std::to_string(t) + ") cannot be less than <from> (" + std::to_string(f) + ")");
+        print_error(global.filename + " at line " + current_line + ": [for] <to> (" + std::to_string(t) + ") cannot be less than <from> (" + std::to_string(f) + ")");
         exit(1);
     }
     if(t == f) {
-        print_warning("at line " + current_line + ": dead code");
+        print_warning(global.filename + " at line " + current_line + ": dead code");
     }
     str s = indent() + "for(int " + v + " = " + std::to_string(f) + "; " + v + " < " + std::to_string(t) + "; " + v +
             "++) {\n";
@@ -191,10 +191,10 @@ str C_Generator::generate_for_end() {
 
 str C_Generator::generate_while_start(const str &condition) {
     if(condition == "true") {
-        print_warning("at line " + current_line + ": infinite loop");
+        print_warning(global.filename + " at line " + current_line + ": infinite loop");
     }
     if(condition == "false") {
-        print_warning("at line " + current_line + ": dead code");
+        print_warning(global.filename + " at line " + current_line + ": dead code");
     }
     str s = indent() + "while(" + condition + ") {\n";
     _indent++;
@@ -214,10 +214,10 @@ str C_Generator::generate_postwhile_start() {
 
 str C_Generator::generate_postwhile_end(const str &condition) {
     if(condition == "true") {
-        print_warning("at line " + current_line + ": infinite loop");
+        print_warning(global.filename + " at line " + current_line + ": infinite loop");
     }
     if(condition == "false") {
-        print_warning("at line " + current_line + ": single run postwhile (consider removing postwhile loop here)");
+        print_warning(global.filename + " at line " + current_line + ": single run postwhile (consider removing postwhile loop here)");
     }
     _indent--;
     return indent() + "} while(" + condition + ");\n";

@@ -1,0 +1,5 @@
+/language: cpp/
+
+func void, test2;
+    println "test 2!";
+end func;

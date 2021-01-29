@@ -105,5 +105,5 @@ end func;
 end module;
 
 /cpp/ namespace smn_info { /
-    newvar const str, simon_version, "0.5.0";
+    newvar extern const str, simon_version;
 /cpp/ }; /

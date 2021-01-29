@@ -81,6 +81,7 @@ int main(int argc, char **argv) {
     global.output
             ->flush();
     global.line = 0;
+    global.filename = parse.nonOption(0);
 
     comments = !options[NO_COMMENT];
 

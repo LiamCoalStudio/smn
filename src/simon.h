@@ -31,6 +31,7 @@ struct global_t {
     std::iostream *output;
     bool is_test;
     long line;
+    str filename;
 };
 extern global_t global;
 
