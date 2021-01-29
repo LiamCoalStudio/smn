@@ -56,6 +56,8 @@ enum ParsePart {
 };
 
 extern bool comments;
+str** test_names = nullptr;
+int test_index = 0;
 
 void parse_line(str s) {
 #if TESTING == true
@@ -293,10 +295,23 @@ void parse_line(str s) {
         str modName = args.front();
         str modDef = "MODULE_" + modName;
         for (int j = 0; j < modDef.size(); j++) {
-            if(modDef[j] == '.' || modDef[j] == '@')
+            if (modDef[j] == '.' || modDef[j] == '@')
                 modDef[j] = '$';
         }
         *global.output << "#ifdef " << modDef << std::endl;
+    } else if (name == "test" && global.language == Language::CPP && global.is_test) {
+        *global.output << generator->generate_function_start("bool", args.front() + "_test", nullptr, 0);
+        test_names = static_cast<str **>(reallocarray(test_names, test_index + 1, sizeof(str *)));
+        test_names[test_index] = new str(args.front() + "_test");
+        test_index++;
+    } else if (name == "run_tests" && global.language == Language::CPP && global.is_test) {
+        for (int j = 0; j < test_index; ++j) {
+            *global.output <<
+                generator->generate_if("!" + *test_names[j] + "()") <<
+                    generator->generate_function_call("eprintln", new str[1]{"\"! " + test_names[j]->substr(0, test_names[j]->length()-5) + "\""}, 1) <<
+                    generator->generate_line_end() <<
+                generator->generate_if_end();
+        }
     } else if (name == ".include") {
         auto input = std::ifstream(args.front());
         auto linenum = global.line;
