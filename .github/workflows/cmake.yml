@@ -42,14 +42,3 @@ jobs:
         working-directory: ${{runner.workspace}}/build
         shell: bash
         run: sudo cmake --install .
-
-      - name: Build All
-        working-directory: ${{runner.workspace}}/build
-        shell: bash
-        # Execute the build.  You can specify a specific target with "--target <NAME>"
-        run: cmake --build . --config $BUILD_TYPE -- -j1
-
-      - name: Test
-        working-directory: ${{runner.workspace}}/build
-        shell: bash
-        run: cmake --build . -- test -j1 -B
