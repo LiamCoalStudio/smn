@@ -86,14 +86,14 @@ str CPP_Generator::generate_class_visibility(const str &vis) {
     if(vis == "public" || vis == "private" || vis == "protected")
         return indent() + vis + ":\n";
     else {
-        print_error("at line " + current_line + ": invalid visibility `" + vis + "`");
+        print_error(global.filename + " at line " + current_line + ": invalid visibility `" + vis + "`");
         exit(1);
     }
 }
 
 str CPP_Generator::generate_class_start(const str &name, str *bases, long count) {
     if(class_info._class) {
-        print_error("at line " + current_line + ": cannot nest classes");
+        print_error(global.filename + " at line " + current_line + ": cannot nest classes");
         exit(1);
     }
     str out = "\n" + indent() + "class " + name;
@@ -114,11 +114,11 @@ str CPP_Generator::generate_class_start(const str &name, str *bases, long count)
 
 str CPP_Generator::generate_class_end() {
     if(!class_info._class) {
-        print_error("at line " + current_line + ": attempted to use `end class` when no class is being defined");
+        print_error(global.filename + " at line " + current_line + ": attempted to use `end class` when no class is being defined");
         exit(1);
     }
     if(class_info._unimpl) {
-        print_warning("at line " + current_line + ": used `end class` on an interface (ok for C++)");
+        print_warning(global.filename + " at line " + current_line + ": used `end class` on an interface (ok for C++)");
     }
     class_info._class = false;
     _indent--;
@@ -135,11 +135,11 @@ str CPP_Generator::generate_interface_start(const str &name) {
 
 str CPP_Generator::generate_interface_end() {
     if(!class_info._class) {
-        print_error("at line " + current_line + ": attempted to use `end interface` when no interface is being defined");
+        print_error(global.filename + " at line " + current_line + ": attempted to use `end interface` when no interface is being defined");
         exit(1);
     }
     if(!class_info._unimpl) {
-        print_warning("at line " + current_line + ": used `end interface` on an class (ok for C++)");
+        print_warning(global.filename + " at line " + current_line + ": used `end interface` on an class (ok for C++)");
     }
     class_info._class = false;
     class_info._unimpl = false;
@@ -179,7 +179,7 @@ str CPP_Generator::transform(Language other, const str &string) {
         case ASSEMBLY:
             return "asm(\"" + string + "\");\n";
         default:
-            print_error("at line " + current_line + ": incompatible language used");
+            print_error(global.filename + " at line " + current_line + ": incompatible language used");
             exit(1);
     }
 }
@@ -224,11 +224,11 @@ str CPP_Generator::generate_include(str file, bool library) {
 
 str CPP_Generator::generate_for_start(const str &v, int f, int t) {
     if(t < f) {
-        print_error("at line " + current_line + ": [for] <to> (" + std::to_string(t) + ") cannot be less than <from> (" + std::to_string(f) + ")");
+        print_error(global.filename + " at line " + current_line + ": [for] <to> (" + std::to_string(t) + ") cannot be less than <from> (" + std::to_string(f) + ")");
         exit(1);
     }
     if(t == f) {
-        print_warning("at line " + current_line + ": dead code");
+        print_warning(global.filename + " at line " + current_line + ": dead code");
     }
     str s = indent() + "for(int " + v + " = " + std::to_string(f) + "; " + v + " < " + std::to_string(t) + "; " + v +
             "++) {\n";
@@ -243,10 +243,10 @@ str CPP_Generator::generate_for_end() {
 
 str CPP_Generator::generate_while_start(const str &condition) {
     if(condition == "true") {
-        print_warning("at line " + current_line + ": infinite loop");
+        print_warning(global.filename + " at line " + current_line + ": infinite loop");
     }
     if(condition == "false") {
-        print_warning("at line " + current_line + ": dead code");
+        print_warning(global.filename + " at line " + current_line + ": dead code");
     }
     str s = indent() + "while(" + condition + ") {\n";
     _indent++;
@@ -266,10 +266,10 @@ str CPP_Generator::generate_postwhile_start() {
 
 str CPP_Generator::generate_postwhile_end(const str &condition) {
     if(condition == "true") {
-        print_warning("at line " + current_line + ": infinite loop");
+        print_warning(global.filename + " at line " + current_line + ": infinite loop");
     }
     if(condition == "false") {
-        print_warning("at line " + current_line + ": single run postwhile (consider removing postwhile loop here)");
+        print_warning(global.filename + " at line " + current_line + ": single run postwhile (consider removing postwhile loop here)");
     }
     _indent--;
     return indent() + "} while(" + condition + ");\n";
