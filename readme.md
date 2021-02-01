@@ -8,11 +8,7 @@ What is Simon?
 Simon is a simple language to generate source code for other languages (like C and C++). It also provides a library
 called `simondev` that adds a bunch of useful functions.
 
-Simon's parser is a little weird right now, but it is usable. If you put in invalid syntax, Simon will usually just go
-with it, probably assuming its a function or including the rest of the document in a single statement.
-
-Errors and warnings (produced by code) are a work in progress feature. I have plans to switch to a "stack" based system
-that will allow it to report `end` errors better, and not require `<statement>` as an argument.
+Errors and warnings (produced by code) are a work in progress feature.
 
 What can you do with Simon
 --------------------------
