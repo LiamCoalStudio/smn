@@ -78,24 +78,24 @@ main;
     switch 5;
     case 3;
         println "3!";
-        end case;
+        end;
     case 5;
         println "5!";
-        end case;
-    end switch;
+        end;
+    end;
 
     for i, 2, 7;
         println std::to_string(i);
-    end for;
+    end;
 
     while false;
         println "Wrong!";
         return 1;
-    end while;
+    end;
 
     postwhile;
         println "One time println!";
-    end postwhile, false;
+    end false;
 
     test2;
 
@@ -103,25 +103,25 @@ main;
     return 0;
 
 # End the function
-end func;
+end;
 
 func void, test;
     println "This is coming from the test function!";
-end func;
+end;
 
 class Test;
     visibility public;
     func void, print;
         println "Test";
     end func;
-end class;
+end;
 
 interface Cat;
     func void, meow;
-end interface;
+end;
 
 struct Simon;
     newvar int, attacks;
-end struct;
+end;
 
 enum Jimmy, CAT, MEOW;
