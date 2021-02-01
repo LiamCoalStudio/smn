@@ -58,6 +58,7 @@ enum ParsePart {
 extern bool comments;
 str** test_names = nullptr;
 int test_index = 0;
+std::list<str> stack;
 
 void parse_line(str s) {
 #if TESTING == true
@@ -157,14 +158,20 @@ void parse_line(str s) {
             f_arg_count++;
         }
         *global.output << generator->generate_function_start(type, name, f_args, f_arg_count);
+        bool unimpl = false;
+        for(auto& a : stack)
+            unimpl = unimpl || a == "interface";
+        if(!unimpl)
+            stack.emplace_back("func");
     } else if (name == "main") {
         *global.output << generator->generate_function_start("int",
                                                              "main",
                                                              new str[2]{"int argc", "char** argv"},
                                                              2);
+        stack.emplace_back("func");
     } else if (name == "end") {
-        str type = args.front();
-        args.pop_front();
+        str type = stack.back();
+        stack.pop_back();
         if (type == "func")
             *global.output << generator->generate_function_end();
         else if (type == "uses")
@@ -231,6 +238,8 @@ void parse_line(str s) {
         args.pop_front();
         str replaced = replace_all(module, '.', '$');
         *global.output << "#define MODULE_" << replaced << std::endl;
+        if(stack.empty())
+            stack.emplace_back("uses");
     } else if (name == "class") {
         str name_ = args.front();
         args.pop_front();
@@ -245,12 +254,15 @@ void parse_line(str s) {
             j++;
         }
         *global.output << generator->generate_class_start(name_, basesv, bases.size());
+        stack.emplace_back("class");
     } else if (name == "interface") {
         *global.output << generator->generate_interface_start(args.front());
         args.pop_front();
+        stack.emplace_back("interface");
     } else if (name == "struct") {
         *global.output << generator->generate_struct_start(args.front());
         args.pop_front();
+        stack.emplace_back("struct");
     } else if (name == "enum") {
         *global.output << generator->generate_enum_start(args.front());
         args.pop_front();
@@ -276,10 +288,13 @@ void parse_line(str s) {
     } else if (name == "if") {
         str condition = args.front();
         *global.output << generator->generate_if(condition);
+        stack.emplace_back("if");
     } else if (name == "switch") {
         *global.output << generator->generate_switch(args.front());
+        stack.emplace_back("switch");
     } else if (name == "case") {
         *global.output << generator->generate_switch_case(args.front());
+        stack.emplace_back("case");
     } else if (name == "for") {
         str varname = args.front();
         args.pop_front();
@@ -287,10 +302,13 @@ void parse_line(str s) {
         args.pop_front();
         int to = std::stoi(args.front(), nullptr, 0);
         *global.output << generator->generate_for_start(varname, from, to);
+        stack.emplace_back("for");
     } else if (name == "while") {
         *global.output << generator->generate_while_start(args.front());
+        stack.emplace_back("while");
     } else if (name == "postwhile") {
         *global.output << generator->generate_postwhile_start();
+        stack.emplace_back("postwhile");
     } else if (name == "module" && global.language == Language::CPP) {
         str modName = args.front();
         str modDef = "MODULE_" + modName;
@@ -299,11 +317,13 @@ void parse_line(str s) {
                 modDef[j] = '$';
         }
         *global.output << "#ifdef " << modDef << std::endl;
+        stack.emplace_back("module");
     } else if (name == "test" && global.language == Language::CPP && global.is_test) {
         *global.output << generator->generate_function_start("bool", args.front() + "_test", nullptr, 0);
         test_names = static_cast<str **>(reallocarray(test_names, test_index + 1, sizeof(str *)));
         test_names[test_index] = new str(args.front() + "_test");
         test_index++;
+        stack.emplace_back("func");
     } else if (name == "run_tests" && global.language == Language::CPP && global.is_test) {
         for (int j = 0; j < test_index; ++j) {
             *global.output <<
@@ -331,8 +351,6 @@ void parse_line(str s) {
         *global.output << generator->generate_function_call(name, argsv, args.size());
         *global.output << generator->generate_line_end();
     }
-//    global.output
-//            ->flush();
     std::cout.flush();
     std::cerr.flush();
 }
