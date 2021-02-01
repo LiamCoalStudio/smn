@@ -149,7 +149,6 @@ void parse_line(str s) {
         args.pop_front();
         str name = args.front();
         args.pop_front();
-        current_function = name;
         str f_args[32];
         int f_arg_count = 0;
         for (auto& str : args) {
