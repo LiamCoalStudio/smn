@@ -6,7 +6,7 @@
 bool comment_mode;
 void parse_line(str str);
 str replace_all(str &basicString, char i, char i1);
-str current_function;
+str list_to_str(std::list<std::string> list, const char *delim);
 extern std::list<std::string> libraries;
 
 bool hasEnding(std::string const &fullString, std::string const &ending) {
@@ -22,7 +22,6 @@ bool hasEnding(std::string const &fullString, std::string const &ending) {
 void parse(std::istream *input) {
     global.line++;
     auto generator = for_language(global.language);
-    current_function = "";
     str obj;
     char* ptr = new char[512];
     input->getline(ptr, 512);
@@ -62,7 +61,7 @@ std::list<str> stack;
 
 void parse_line(str s) {
 #if TESTING == true
-    print_info(current_line + " " + global.filename + " : " + s);
+    print_info(current_line + " " + global.filename + " : " + s + " # " + list_to_str(stack, " -> "));
 #endif
     auto generator = for_language(global.language);
     if (s == "/language: cpp/") {
@@ -353,6 +352,21 @@ void parse_line(str s) {
     }
     std::cout.flush();
     std::cerr.flush();
+}
+
+str list_to_str(std::list<std::string> list, const char* delim) {
+    if(list.empty()) return "<global>";
+    int size = list.size();
+    str a[size];
+    for (int i = 0; i < size; ++i) {
+        a[i] = list.front();
+        list.pop_front();
+    }
+    str r;
+    for(int i = size-1; i >= 0; i--) {
+        r += a[i] + (i == 0 ? "" : delim);
+    }
+    return r;
 }
 
 str replace_all(str &basicString, char i, char i1) {
