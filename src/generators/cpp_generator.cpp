@@ -274,3 +274,7 @@ str CPP_Generator::generate_postwhile_end(const str &condition) {
     _indent--;
     return indent() + "} while(" + condition + ");\n";
 }
+
+str CPP_Generator::generate_line_preprocessor(int line, str file) {
+    return "#line " + std::to_string(line) + " \"" + file + "\"\n";
+}

@@ -63,6 +63,7 @@ public:
     virtual str generate_include(str file, bool library) = 0;
     virtual str generate_assert_test(str condtition, str name) = 0;
     virtual str generate_line_end() = 0;
+    virtual str generate_line_preprocessor(int line, str file) = 0;
     virtual str comment_str() = 0;
     virtual str name() = 0;
 };
@@ -105,6 +106,7 @@ public:
     str generate_while_end() override;
     str generate_postwhile_start() override;
     str generate_postwhile_end(const str &condition) override;
+    str generate_line_preprocessor(int line, str file) override;
 };
 
 class C_Generator : public Generator {
@@ -145,6 +147,7 @@ public:
     str generate_while_end() override;
     str generate_postwhile_start() override;
     str generate_postwhile_end(const str &condition) override;
+    str generate_line_preprocessor(int line, str file) override;
 };
 
 inline Generator *for_language(Language l) {

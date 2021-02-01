@@ -85,6 +85,7 @@ void parse_line(str s) {
         print_error("at line " + current_line + ": must have /language: .../ before code");
         exit(1);
     }
+    *global.output << generator->generate_line_preprocessor((int)global.line, global.filename);
     if(comments) *global.output << generator->generate_comment("=> " + s, true);
     if (s.substr(0, 5) == "/cpp/") {
         *global.output << generator->transform(CPP, s.substr(5, s.size() - 7)) << std::endl;
