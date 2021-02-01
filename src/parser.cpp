@@ -69,6 +69,11 @@ void parse_line(str s) {
         return;
     }
     if (s == "/language: c/") {
+        print_warning("at line " + current_line + ":");
+        print_warning("c will not be supported in a future release. consider switching to c++:");
+        print_warning("  * it has full support for classes");
+        print_warning("  * you can use interfaces");
+        print_warning("  * SIMONDEV is compatible");
         global.language = Language::C;
         return;
     }
