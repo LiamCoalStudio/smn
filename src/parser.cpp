@@ -324,6 +324,11 @@ void parse_line(str s) {
         test_index++;
         stack.emplace_back("func");
     } else if (name == "run_tests" && global.language == Language::CPP && global.is_test) {
+        bool in_func = false;
+        for(auto& a : stack)
+            in_func = in_func || a == "func";
+        if(!in_func)
+            *global.output << generator->generate_function_start("int", "main", nullptr, 0);
         for (int j = 0; j < test_index; ++j) {
             *global.output <<
                 generator->generate_if("!" + *test_names[j] + "()") <<
@@ -331,6 +336,8 @@ void parse_line(str s) {
                     generator->generate_line_end() <<
                 generator->generate_if_end();
         }
+        if(!in_func)
+            *global.output << generator->generate_function_end();
     } else if (name == ".include") {
         auto input = std::ifstream(args.front());
         auto linenum = global.line;
