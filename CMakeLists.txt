@@ -13,7 +13,7 @@ if (${TESTING})
     add_compile_options(-DTESTING=true)
 endif ()
 
-add_compile_definitions(PRIVATE VERSION=\"0.4.1\")
+add_compile_definitions(PRIVATE VERSION=\"0.6.0\")
 add_library(smnl STATIC src/main.cpp src/parser.cpp src/simon.h optionparser.h src/languages.h src/generators/generator.h src/generators/cpp_generator.cpp src/generators/c_generator.cpp src/generators/generator.cpp)
 
 link_libraries(smnl dl)
